@@ -139,12 +139,31 @@ const onMIDIFailure = () => {
 };
 
 const requestMIDIAccess = () => {
+    // Verifier si nous sommes dans un contexte HTTPS ou localhost (necessaire pour Web MIDI API)
+    const isSecureContext = window.isSecureContext || 
+                           location.protocol === 'https:' || 
+                           location.hostname === 'localhost' || 
+                           location.hostname === '127.0.0.1';
+    
+    if (!isSecureContext) {
+        console.warn("MIDI n'est accessible que dans un contexte securise (HTTPS) ou en local");
+        return;
+    }
+    
     if (navigator.requestMIDIAccess) {
         navigator.requestMIDIAccess({ sysex: false })
             .then(onMIDISuccess)
-            .catch(onMIDIFailure);
+            .catch(error => {
+                console.error("Erreur lors de l'acces MIDI:", error);
+                if (error.name === 'SecurityError' || error.name === 'NotAllowedError') {
+                    console.warn("Acces MIDI refuse par l'utilisateur ou le navigateur");
+                } else if (error.name === 'NotSupportedError') {
+                    console.warn("MIDI n'est pas supporte par ce navigateur ou cet appareil");
+                }
+                onMIDIFailure();
+            });
     } else {
-        console.error("MIDI n'est pas supporté dans ce navigateur");
+        console.warn("MIDI n'est pas supporte dans ce navigateur");
     }
 };
 
