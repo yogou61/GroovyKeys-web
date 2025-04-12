@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groovy Keys - Improvisation</title>
+    <link rel="icon" href="raccourci.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="logo">
+        <img src="logo.png" alt="Groovy Keys Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Piano</a>
+        <a href="practice.html">Entraînement</a>
+        <a href="improvisation.html" class="active">Improvisation</a>
+        <a href="learn.html">Apprendre</a>
+        <a href="about.html">à propos</a>
+    </nav>
+
+    <div class="practice-controls">
+        <div class="practice-layout">
+            <div class="practice-left">
+                <div class="settings">
+                    <div>
+                        <label for="practice-scale-type">Gamme:</label>
+                        <select id="practice-scale-type" data-control="scale-type" data-no-generate="true">
+                            <option value="major">Majeure</option>
+                            <option value="minor">Mineure</option>
+                            <option value="blues">Blues</option>
+                            <option value="lofi">Lo-Fi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="practice-scale-root">Tonalité:</label>
+                        <select id="practice-scale-root" data-control="scale-root" data-no-generate="true">
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                            <option value="G">G</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="progression-length">Longueur:</label>
+                        <input type="number" id="progression-length" min="2" max="8" value="4" data-control="length" data-no-generate="true">
+                    </div>
+                    <div>
+                        <label for="tempo-range">Tempo:</label>
+                        <select id="tempo-range" data-control="tempo" data-no-generate="true">
+                            <option value="slow">Lent (60-80 BPM)</option>
+                            <option value="medium" selected>Moyen (80-100 BPM)</option>
+                            <option value="fast">Rapide (100-120 BPM)</option>
+                            <option value="pro">Pro (120-140 BPM)</option>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button id="generate-progression" data-action="generate">Générer</button>
+                        <button id="show-progress" data-action="progress">Progrès</button>
+                    </div>
+                </div>
+
+                <div id="metronome">
+                    <div class="beat-dots">
+                        <div class="beat-dot"></div>
+                        <div class="beat-dot"></div>
+                        <div class="beat-dot"></div>
+                        <div class="beat-dot"></div>
+                    </div>
+                    <div id="bpm-display">BPM: <span id="bpm-value">90</span></div>
+                </div>
+
+                <div class="practice-stats">
+                    <div id="accuracy">Réussis: 0/0</div>
+                    <div id="streak">Série: 0</div>
+                    <div id="speed-score">Score: 0</div>
+                    <button id="reset-stats" data-action="reset">Reset</button>
+                </div>
+            </div>
+
+            <div class="practice-right">
+                <div class="progression-display">
+                    <div id="chord-sequence">Notes à jouer</div>
+                    <div id="current-chord">Note actuelle</div>
+                </div>
+                <div id="piano"></div>
+                
+                <div class="impro-guide">
+                    <h3>Guide d'improvisation</h3>
+                    <div class="impro-tabs">
+                        <button class="impro-tab active" data-tab="tips">Astuces</button>
+                        <button class="impro-tab" data-tab="emotions">Expressivité</button>
+                        <button class="impro-tab" data-tab="motifs">Mélodies</button>
+                        <button class="impro-tab" data-tab="patterns">Motifs</button>
+                    </div>
+                    
+                    <div class="impro-content">
+                        <div class="impro-tab-content active" id="tips-content">
+                            <h4>Astuces pour bien improviser</h4>
+                            <ul>
+                                <li><strong>Commencez lentement</strong> - Maîtrisez d'abord les notes à un tempo réduit</li>
+                                <li><strong>Écoutez le rythme</strong> - Restez synchronisé avec le métronome</li>
+                                <li><strong>Expérimentez</strong> - Essayez différentes combinaisons de notes</li>
+                                <li><strong>Répétez des motifs</strong> - Créez des phrases musicales en répétant des motifs</li>
+                                <li><strong>Utilisez le silence</strong> - Les pauses sont aussi importantes que les notes</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="impro-tab-content" id="emotions-content">
+                            <h4>L'art d'exprimer des émotions</h4>
+                            <p class="intro-text">L'improvisation ne consiste pas seulement à jouer les bonnes notes, mais aussi à transmettre des émotions. Explorez comment créer différentes ambiances à travers votre jeu.</p>
+                            
+                            <div class="emotion-grid">
+                                <div class="emotion-card">
+                                    <h5>Joie et Légèreté</h5>
+                                    <div class="emotion-icon">😊</div>
+                                    <ul class="emotion-tips">
+                                        <li>Utilisez des tempos rapides (100-140 BPM)</li>
+                                        <li>Jouez dans des tonalités majeures</li>
+                                        <li>Favorisez les notes aiguës et les rythmes sautillants</li>
+                                        <li>Utilisez des motifs ascendants qui se terminent sur des notes fortes</li>
+                                        <li>Ajoutez de courts silences pour créer de l'anticipation</li>
+                                    </ul>
+                                    <div class="emotion-example">Exemple : Jouez des phrases courtes et rapides qui montent vers les aigus, avec des rythmes pointés et des accents sur les temps forts.</div>
+                                </div>
+                                
+                                <div class="emotion-card">
+                                    <h5>Mélancolie et Nostalgie</h5>
+                                    <div class="emotion-icon">😔</div>
+                                    <ul class="emotion-tips">
+                                        <li>Optez pour des tempos lents (60-80 BPM)</li>
+                                        <li>Préférez les tonalités mineures</li>
+                                        <li>Utilisez des notes tenues et des lignes descendantes</li>
+                                        <li>Explorez les registres graves du piano</li>
+                                        <li>Introduisez des dissonances subtiles pour la tension</li>
+                                    </ul>
+                                    <div class="emotion-example">Exemple : Créez des phrases lentes qui descendent progressivement, avec des notes qui se chevauchent et quelques silences prolongés.</div>
+                                </div>
+                                
+                                <div class="emotion-card">
+                                    <h5>Tension et Dramatisme</h5>
+                                    <div class="emotion-icon">😬</div>
+                                    <ul class="emotion-tips">
+                                        <li>Alternez entre tempos lents et accélérations</li>
+                                        <li>Utilisez des intervalles de triton (quarte augmentée)</li>
+                                        <li>Incorporez des notes chromatiques et des dissonances</li>
+                                        <li>Contrastez les dynamiques (fort/doux)</li>
+                                        <li>Construisez progressivement l'intensité</li>
+                                    </ul>
+                                    <div class="emotion-example">Exemple : Débutez doucement dans le grave, augmentez graduellement le volume et la densité des notes, culminez avec des accords forts, puis revenez au calme.</div>
+                                </div>
+                                
+                                <div class="emotion-card">
+                                    <h5>Calme et Sérénité</h5>
+                                    <div class="emotion-icon">😌</div>
+                                    <ul class="emotion-tips">
+                                        <li>Adoptez un tempo méditatif (70-90 BPM)</li>
+                                        <li>Utilisez des accords ouverts et arpegés</li>
+                                        <li>Privilégiez les intervalles consonants (tierces, quintes)</li>
+                                        <li>Laissez de l'espace entre les phrases musicales</li>
+                                        <li>Maintenez une dynamique douce et égale</li>
+                                    </ul>
+                                    <div class="emotion-example">Exemple : Jouez des arpegés lents et fluides, en laissant chaque note résonner. Ajoutez des mélodies simples par-dessus, sans précipitation.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="emotion-practice">
+                                <h5>Comment s'exercer</h5>
+                                <ol>
+                                    <li><strong>Visualisation</strong> : Avant de jouer, imaginez une scène ou un souvenir lié à l'émotion cible</li>
+                                    <li><strong>Expressivité corporelle</strong> : Laissez votre corps exprimer l'émotion pendant que vous jouez</li>
+                                    <li><strong>Dynamique</strong> : Variez l'intensité (fort/doux) pour renforcer l'expression émotionnelle</li>
+                                    <li><strong>Écoute active</strong> : Analysez comment les grands musiciens transmettent des émotions</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="impro-tab-content" id="motifs-content">
+                            <h4>L'art des mélodies courtes (Licks & Motifs)</h4>
+                            <p class="intro-text">Les mélodies courtes de 5 à 9 notes, souvent appelées <strong>licks</strong>, <strong>motifs</strong> ou <strong>cellules mélodiques</strong>, sont les blocs de construction fondamentaux de l'improvisation. Comme des phrases dans le langage, elles permettent d'exprimer des idées musicales concises et mémorables.</p>
+                            
+                            <div class="motif-importance">
+                                <h5>Pourquoi utiliser des motifs courts ?</h5>
+                                <div class="advantages">
+                                    <div class="advantage-item">
+                                        <div class="advantage-icon">🕒</div>
+                                        <div class="advantage-text">
+                                            <strong>Mémorisation facile</strong>
+                                            <p>Plus faciles à retenir et à reproduire que de longues séquences, menant à une mémoire musculaire plus rapide.</p>
+                                        </div>
+                                    </div>
+                                    <div class="advantage-item">
+                                        <div class="advantage-icon">🎵</div>
+                                        <div class="advantage-text">
+                                            <strong>Motifs reconnaissables</strong>
+                                            <p>Créent des "signatures sonores" que l'auditeur peut identifier et suivre tout au long du morceau.</p>
+                                        </div>
+                                    </div>
+                                    <div class="advantage-item">
+                                        <div class="advantage-icon">🔄</div>
+                                        <div class="advantage-text">
+                                            <strong>Versatilité</strong>
+                                            <p>Peuvent être transposés, inversés, étirés ou compressés pour créer de nombreuses variations.</p>
+                                        </div>
+                                    </div>
+                                    <div class="advantage-item">
+                                        <div class="advantage-icon">💡</div>
+                                        <div class="advantage-text">
+                                            <strong>Clarté d'expression</strong>
+                                            <p>Comme un bon discours, des phrases courtes et incisives ont plus d'impact que de longs monologues.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lick-examples">
+                                <h5>Exemples de licks/motifs classiques</h5>
+                                <div class="lick-collection">
+                                    <div class="lick-item">
+                                        <h6>Motif Blues Simple</h6>
+                                        <div class="lick-notation">
+                                            <span class="note">Do</span>
+                                            <span class="note">Mib</span>
+                                            <span class="note">Fa</span>
+                                            <span class="note">Fa#</span>
+                                            <span class="note">Fa</span>
+                                            <span class="note">Mib</span>
+                                            <span class="note">Do</span>
+                                        </div>
+                                        <p>Ce lick blues utilise la note bleue (Fa#) pour créer une tension caractéristique.</p>
+                                    </div>
+                                    <div class="lick-item">
+                                        <h6>Motif Pentatonique</h6>
+                                        <div class="lick-notation">
+                                            <span class="note">Sol</span>
+                                            <span class="note">La</span>
+                                            <span class="note">Do</span>
+                                            <span class="note">Ré</span>
+                                            <span class="note">Mi</span>
+                                            <span class="note">Ré</span>
+                                            <span class="note">Do</span>
+                                        </div>
+                                        <p>Motif classique de rock basé sur la gamme pentatonique majeure.</p>
+                                    </div>
+                                    <div class="lick-item">
+                                        <h6>Motif Jazz (II-V-I)</h6>
+                                        <div class="lick-notation">
+                                            <span class="note">Ré</span>
+                                            <span class="note">Fa</span>
+                                            <span class="note">La</span>
+                                            <span class="note">Si</span>
+                                            <span class="note">Ré</span>
+                                            <span class="note">Do</span>
+                                        </div>
+                                        <p>Ce lick jazz couvre efficacement une progression d'accords II-V-I.</p>
+                                    </div>
+                                    <div class="lick-item">
+                                        <h6>Motif Latin/Bossa</h6>
+                                        <div class="lick-notation">
+                                            <span class="note">Mi</span>
+                                            <span class="note">Fa</span>
+                                            <span class="note">Sol</span>
+                                            <span class="note">La</span>
+                                            <span class="note">Sol</span>
+                                            <span class="note">Mi</span>
+                                            <span class="note">Ré</span>
+                                            <span class="note">Do</span>
+                                        </div>
+                                        <p>Phrase mélodique descendante avec rythme syncopé typique des musiques latines.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="motif-techniques">
+                                <h5>Techniques de développement</h5>
+                                <div class="technique-grid">
+                                    <div class="technique-card">
+                                        <h6>Répétition</h6>
+                                        <p>Répétez le même motif plusieurs fois pour créer une structure stable que l'auditeur peut suivre.</p>
+                                        <div class="technique-example">Exemple: Motif → Motif → Motif</div>
+                                    </div>
+                                    <div class="technique-card">
+                                        <h6>Séquence</h6>
+                                        <p>Répétez le motif en commençant sur différentes notes de la gamme (transposition).</p>
+                                        <div class="technique-example">Exemple: Do-Mi-Sol → Ré-Fa-La → Mi-Sol-Si</div>
+                                    </div>
+                                    <div class="technique-card">
+                                        <h6>Inversion</h6>
+                                        <p>Jouez le motif à l'envers, transformant les intervalles ascendants en descendants et vice-versa.</p>
+                                        <div class="technique-example">Exemple: Do-Mi-Sol → Sol-Mi-Do</div>
+                                    </div>
+                                    <div class="technique-card">
+                                        <h6>Augmentation/Diminution</h6>
+                                        <p>Jouez le motif en doublant ou en divisant par deux la durée des notes.</p>
+                                        <div class="technique-example">Exemple: Do♪Mi♪Sol♪ → Do♩Mi♩Sol♩</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="practice-method">
+                                <h5>Méthode d'apprentissage</h5>
+                                <ol>
+                                    <li><strong>Collectionnez</strong> des motifs que vous aimez en les notant ou en les enregistrant</li>
+                                    <li><strong>Pratiquez</strong> chaque motif dans différentes tonalités</li>
+                                    <li><strong>Combinez</strong> plusieurs motifs pour créer des phrases plus longues</li>
+                                    <li><strong>Personnalisez</strong> les motifs en ajoutant votre propre touche (rythme, notes, dynamique)</li>
+                                    <li><strong>Contextualisez</strong> en appliquant les motifs sur des morceaux réels</li>
+                                </ol>
+                                <blockquote class="quote">
+                                    "Les grands improvisateurs ne sont pas ceux qui inventent tout à chaque instant, mais ceux qui manipulent habilement un vocabulaire de motifs qu'ils ont développé au fil du temps."
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="impro-tab-content" id="patterns-content">
+                            <h4>Motifs d'improvisation</h4>
+                            <div class="pattern-examples">
+                                <div class="pattern">
+                                    <h5>Montée-Descente</h5>
+                                    <p>Jouez les notes de la gamme en montant puis en descendant</p>
+                                    <div class="pattern-visual">▁▂▃▄▅▆▇█▇▆▅▄▃▂▁</div>
+                                    <div class="pattern-details">
+                                        <p><strong>Comment pratiquer :</strong></p>
+                                        <ol>
+                                            <li>Commencez par la tonique (première note de la gamme)</li>
+                                            <li>Jouez chaque note jusqu'à l'octave supérieure</li>
+                                            <li>Redescendez note par note jusqu'à la tonique</li>
+                                            <li>Variez le rythme : jouez deux notes par temps, puis trois, etc.</li>
+                                        </ol>
+                                        <p><strong>Objectif :</strong> Développer la fluidité et mémoriser la gamme physiquement. Ce motif est la base pour acquérir l'aisance digitale nécessaire à l'improvisation.</p>
+                                    </div>
+                                </div>
+                                <div class="pattern">
+                                    <h5>Arpège</h5>
+                                    <p>Jouez les notes 1-3-5 de la gamme en montant et descendant</p>
+                                    <div class="pattern-visual">▁▅█▅▁</div>
+                                    <div class="pattern-details">
+                                        <p><strong>Comment pratiquer :</strong></p>
+                                        <ol>
+                                            <li>Reprenez les notes 1 (tonique), 3 (tierce) et 5 (quinte) de la gamme</li>
+                                            <li>Jouez-les successivement en montant puis descendant</li>
+                                            <li>Essayez plusieurs octaves consécutives</li>
+                                            <li>Inversez l'ordre pour créer des variations (5-3-1, 3-1-5, etc.)</li>
+                                        </ol>
+                                        <p><strong>Application:</strong> Ce motif correspond aux notes principales des accords. Le maîtriser permet d'improviser sur n'importe quelle progression harmonique en suivant les notes essentielles.</p>
+                                    </div>
+                                </div>
+                                <div class="pattern">
+                                    <h5>Question-Réponse</h5>
+                                    <p>Créez une phrase musicale puis répondez-y avec une variation</p>
+                                    <div class="pattern-visual">▁▃▂▄▃▁ → ▁▃▅▄▃▁</div>
+                                    <div class="pattern-details">
+                                        <p><strong>Comment pratiquer :</strong></p>
+                                        <ol>
+                                            <li>Jouez une phrase simple de 4-5 notes (la question)</li>
+                                            <li>Reprenez-la en modifiant une ou deux notes (la réponse)</li>
+                                            <li>Gardez la même structure rythmique mais changez les hauteurs</li>
+                                            <li>Alternez entre phrases conclusives et phrases ouvertes</li>
+                                        </ol>
+                                        <p><strong>Concept musical :</strong> Ce motif reproduit la structure de conversation en musique. Il crée une narration et donne l'impression d'un dialogue, ajoutant de la cohérence et un sens d'évolution à votre improvisation.</p>
+                                    </div>
+                                </div>
+                                <div class="pattern">
+                                    <h5>Rythme syncopé</h5>
+                                    <p>Accentuez les temps faibles pour créer du groove</p>
+                                    <div class="pattern-visual">▁▅▁▃▁▅▁▃</div>
+                                    <div class="pattern-details">
+                                        <p><strong>Comment pratiquer :</strong></p>
+                                        <ol>
+                                            <li>Marquez le temps avec votre pied (1-2-3-4)</li>
+                                            <li>Jouez entre les temps (sur les "et")</li>
+                                            <li>Accentuez les notes sur les temps faibles (2 et 4)</li>
+                                            <li>Combinez avec des silences stratégiques pour créer de la tension</li>
+                                        </ol>
+                                        <p><strong>Importance :</strong> La syncope est essentielle dans le jazz, funk et autres genres modernes. Ce décalage rythmique crée une tension qui donne vie à votre musique, la rendant plus dynamique et engageante pour l'auditeur.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour les progrès -->
+    <div id="progress-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-action="close-modal">&times;</span>
+            <h2>Mes Progrès</h2>
+            <div class="progress-filters">
+                <button class="period-btn active" data-period="week" data-action="period">7 jours</button>
+                <button class="period-btn" data-period="month" data-action="period">30 jours</button>
+                <button class="period-btn" data-period="sixMonths" data-action="period">6 mois</button>
+                <button class="period-btn" data-period="year" data-action="period">1 an</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="progress-chart"></canvas>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-box">
+                    <h3>Score Moyen</h3>
+                    <p id="avg-score">-</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Meilleur Score</h3>
+                    <p id="best-score">-</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Sessions</h3>
+                    <p id="total-sessions">-</p>
+                </div>
+            </div>
+            <div class="data-controls">
+                <button class="data-btn" id="export-data" data-action="export">Exporter</button>
+                <button class="data-btn" id="import-data" data-action="import">Importer</button>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de prévention d'événements -->
+    <script>
+        // Empêcher la propagation des événements pour les contrôles
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bloquer les événements des contrôles qui ne doivent pas déclencher de génération
+            const noGenerateControls = document.querySelectorAll('[data-no-generate="true"]');
+            noGenerateControls.forEach(control => {
+                control.addEventListener('change', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    console.log('Contrôle modifié sans génération:', control.id);
+                    
+                    // Si c'est le tempo, mettre à jour le BPM
+                    if (control.id === 'tempo-range' && window.updateTempoOnly) {
+                        window.updateTempoOnly(control.value);
+                    }
+                });
+                
+                // Empêcher aussi les événements de focus/blur/click
+                ['focus', 'blur', 'click'].forEach(event => {
+                    control.addEventListener(event, function(e) {
+                        e.stopPropagation();
+                    });
+                });
+            });
+            
+            // Configurer les boutons d'action avec leurs propres gestionnaires
+            const actionButtons = document.querySelectorAll('[data-action]');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                    
+                    const action = button.getAttribute('data-action');
+                    console.log('Action déclenchée:', action);
+                    
+                    // Exécuter l'action correspondante
+                    switch(action) {
+                        case 'generate':
+                            if (window.generateNoteSequence) window.generateNoteSequence();
+                            break;
+                        case 'reset':
+                            if (window.resetStats) window.resetStats();
+                            break;
+                        case 'progress':
+                            const modal = document.getElementById('progress-modal');
+                            if (modal) modal.style.display = 'block';
+                            if (window.updateChart) window.updateChart('week');
+                            break;
+                        case 'close-modal':
+                            const closeModal = document.getElementById('progress-modal');
+                            if (closeModal) closeModal.style.display = 'none';
+                            break;
+                        case 'period':
+                            const period = button.getAttribute('data-period');
+                            document.querySelectorAll('.period-btn').forEach(btn => {
+                                btn.classList.remove('active');
+                            });
+                            button.classList.add('active');
+                            if (window.updateChart && period) window.updateChart(period);
+                            break;
+                        case 'export':
+                            if (window.exportData) window.exportData();
+                            break;
+                        case 'import':
+                            document.getElementById('import-file').click();
+                            break;
+                    }
+                });
+            });
+            
+            // Gestionnaire de clic externe pour la modale
+            window.addEventListener('click', function(e) {
+                const modal = document.getElementById('progress-modal');
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            console.log('Protection anti-conflits installée avec succès');
+        });
+    </script>
+    
+    <!-- Ajouter une fonction pour mettre à jour le tempo sans générer -->
+    <script>
+        window.updateTempoOnly = function(tempoValue) {
+            if (typeof generateRandomBPM !== 'function') return;
+            
+            const bpmValue = document.getElementById('bpm-value');
+            const newBPM = generateRandomBPM(tempoValue);
+            
+            if (window.currentBPM) window.currentBPM = newBPM;
+            if (bpmValue) bpmValue.textContent = newBPM;
+            
+            // Mettre à jour le métronome si nécessaire
+            if (window.metronomeInterval && typeof toggleMetronome === 'function') {
+                toggleMetronome(false); // Arrêter
+                toggleMetronome(true);  // Redémarrer avec le nouveau BPM
+            }
+            
+            console.log('Tempo mis à jour sans régénération:', newBPM);
+        };
+    </script>
+
+    <!-- Script pour gérer les onglets du guide d'improvisation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des onglets du guide d'improvisation
+            const improTabs = document.querySelectorAll('.impro-tab');
+            const tabContents = document.querySelectorAll('.impro-tab-content');
+            
+            improTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Retirer la classe active de tous les onglets
+                    improTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Ajouter la classe active à l'onglet cliqué
+                    tab.classList.add('active');
+                    
+                    // Cacher tous les contenus
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Afficher le contenu correspondant à l'onglet
+                    const tabId = tab.getAttribute('data-tab');
+                    const targetContent = document.getElementById(tabId + '-content');
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+            
+            console.log('Gestion des onglets du guide d\'improvisation initialisée');
+        });
+    </script>
+    
+    <!-- Charger les scripts dans cet ordre précis -->
+    <script src="script.js"></script>
+    <script src="improvisation.js"></script>
+</body>
+</html>

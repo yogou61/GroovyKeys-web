@@ -1,0 +1,605 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groovy Keys - Apprendre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="logo.png" alt="Groovy Keys Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Piano</a>
+        <a href="practice.html">Entraînement</a>
+        <a href="improvisation.html">Improvisation</a>
+        <a href="learn.html" class="active">Apprendre</a>
+        <a href="about.html">À propos</a>
+    </nav>
+
+    <div class="content">
+        <section id="lesson-cards" class="lesson-cards active">
+            <h2>Bienvenue dans ton aventure musicale ! 🎵</h2>
+            <p>Découvre le piano comme un jeu amusant ! Chaque leçon est une nouvelle aventure.</p>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <h3>Les notes magiques 🎵</h3>
+                    <p>Imagine que chaque touche du piano est comme une couleur différente qui fait un son unique ! Découvre le monde coloré de la musique.</p>
+                    <div class="lesson-image">
+                        <img src="images/notes-colors.svg" alt="Notes colorées sur un clavier" class="lesson-illustration">
+                    </div>
+                    <div class="lesson-preview">
+                        <p>Tu apprendras :</p>
+                        <ul class="lesson-points">
+                            <li>🎹 Les touches blanches et noires</li>
+                            <li>🌈 Les noms des notes en couleurs</li>
+                            <li>🎯 Le jeu "La chasse aux notes"</li>
+                        </ul>
+                    </div>
+                    <button class="start-button" onclick="showSection('notes-section')">Commencer l'aventure</button>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>Les accords enchantés 🎪</h3>
+                    <p>C'est comme faire un sandwich musical : on empile des notes pour créer quelque chose de magique !</p>
+                    <div class="lesson-image">
+                        <img src="images/chord-sandwich.svg" alt="Accord illustré comme un sandwich" class="lesson-illustration">
+                    </div>
+                    <div class="lesson-preview">
+                        <p>Tu découvriras :</p>
+                        <ul class="lesson-points">
+                            <li>🥪 La recette des accords</li>
+                            <li>✨ Les accords magiques majeurs</li>
+                            <li>🌙 Les accords mystérieux mineurs</li>
+                        </ul>
+                    </div>
+                    <button class="start-button" onclick="showSection('accords-section')">Créer de la magie</button>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>Les gammes arc-en-ciel 🌈</h3>
+                    <p>Monte et descends l'escalier musical ! Chaque marche est une nouvelle note qui brille de mille feux.</p>
+                    <div class="lesson-image">
+                        <img src="images/scale-stairs.svg" alt="Gamme illustrée comme un escalier" class="lesson-illustration">
+                    </div>
+                    <div class="lesson-preview">
+                        <p>Tu exploreras :</p>
+                        <ul class="lesson-points">
+                            <li>🪜 L'escalier des notes</li>
+                            <li>☀️ Les gammes joyeuses (majeures)</li>
+                            <li>🌙 Les gammes rêveuses (mineures)</li>
+                        </ul>
+                    </div>
+                    <button class="start-button" onclick="showSection('gammes-section')">Monter l'escalier</button>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>La magie de la musique 🔮</h3>
+                    <p>Deviens un apprenti sorcier de la musique ! Découvre les secrets des notes et des rythmes magiques.</p>
+                    <div class="lesson-image">
+                        <img src="images/music-magic.svg" alt="Théorie musicale illustrée magiquement" class="lesson-illustration">
+                    </div>
+                    <div class="lesson-preview">
+                        <p>Tu maîtriseras :</p>
+                        <ul class="lesson-points">
+                            <li>⚡ Les sorts rythmiques</li>
+                            <li>📖 Le grimoire des symboles</li>
+                            <li>🎭 L'expression musicale</li>
+                        </ul>
+                    </div>
+                    <button class="start-button" onclick="showSection('theorie-section')">Devenir magicien</button>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>Les jeux musicaux 🎮</h3>
+                    <p>Joue et apprends en même temps ! Des mini-jeux amusants pour devenir un super pianiste.</p>
+                    <div class="lesson-image">
+                        <img src="images/music-games.svg" alt="Jeux musicaux illustrés" class="lesson-illustration">
+                    </div>
+                    <div class="lesson-preview">
+                        <p>Tu joueras à :</p>
+                        <ul class="lesson-points">
+                            <li>🎯 La chasse aux notes</li>
+                            <li>🏃‍♂️ La course des gammes</li>
+                            <li>🎨 Le piano coloré</li>
+                        </ul>
+                    </div>
+                    <button class="start-button" onclick="showSection('exercices-section')">Jouer et apprendre</button>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>Les super pouvoirs du piano 🦸‍♂️</h3>
+                    <p>Développe tes super pouvoirs de pianiste ! Apprends les techniques secrètes des maîtres.</p>
+                    <div class="lesson-image">
+                        <img src="images/piano-superhero.svg" alt="Techniques de piano illustrées" class="lesson-illustration">
+                    </div>
+                    <div class="lesson-preview">
+                        <p>Tu développeras :</p>
+                        <ul class="lesson-points">
+                            <li>💪 La force des doigts</li>
+                            <li>🏃‍♂️ La vitesse d'exécution</li>
+                            <li>🎯 La précision du toucher</li>
+                        </ul>
+                    </div>
+                    <button class="start-button" onclick="showSection('techniques-section')">Devenir super-héros</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="notes-section" class="lesson-content hidden">
+            <div class="section-header">
+                <button class="back-button" onclick="showSection('lesson-cards')">Retour à la carte au trésor</button>
+                <h2>Les notes magiques 🎵</h2>
+                <div class="section-intro">
+                    <p>Bienvenue dans le monde magique des notes ! Ici, chaque touche du piano raconte sa propre histoire.</p>
+                    <div class="fun-fact">
+                        <p>🌟 Le savais-tu ? Les touches blanches forment la gamme de Do, comme "Do-Ré-Mi" dans "La Mélodie du Bonheur" !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-content-detail">
+                <div class="lesson-section">
+                    <h3>Les touches blanches - Nos amies brillantes ✨</h3>
+                    <div class="interactive-keyboard">
+                        <img src="images/white-keys.svg" alt="Les touches blanches du piano" class="lesson-illustration">
+                    </div>
+                    <ul class="friendly-notes">
+                        <li>🌞 Do - Le chef d'orchestre qui commence l'aventure</li>
+                        <li>🌺 Ré - Le danseur qui aime bouger</li>
+                        <li>🌈 Mi - Le peintre des mélodies</li>
+                        <li>⭐ Fa - L'étoile qui brille fort</li>
+                        <li>🌳 Sol - Le géant qui soutient tout le monde</li>
+                        <li>🎨 La - L'artiste qui peint des mélodies</li>
+                        <li>🌙 Si - Le rêveur qui nous ramène à Do</li>
+                    </ul>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>Les touches noires - Les gardiens mystérieux 🌑</h3>
+                    <div class="interactive-keyboard">
+                        <img src="images/black-keys.svg" alt="Les touches noires du piano" class="lesson-illustration">
+                    </div>
+                    <p>Les touches noires sont comme des ponts magiques entre les touches blanches !</p>
+                    <ul class="friendly-notes">
+                        <li>Do# - Entre Do et Ré</li>
+                        <li>Ré# - Entre Ré et Mi</li>
+                        <li>Fa# - Entre Fa et Sol</li>
+                        <li>Sol# - Entre Sol et La</li>
+                        <li>La# - Entre La et Si</li>
+                    </ul>
+                </div>
+
+                <div class="fun-exercise">
+                    <h3>Jeu : La chasse aux notes 🎯</h3>
+                    <p>Deviens un chasseur de notes ! Voici comment jouer :</p>
+                    <ol>
+                        <li>1. Trouve une note sur le clavier</li>
+                        <li>2. Joue-la trois fois</li>
+                        <li>3. Chante son nom</li>
+                        <li>4. Passe à la note suivante</li>
+                    </ol>
+                    <div class="achievement">
+                        <p>🏆 Quand tu réussis, tu deviens un "Chasseur de Notes" !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="accords-section" class="lesson-content hidden">
+            <div class="section-header">
+                <button class="back-button" onclick="showSection('lesson-cards')">Retour à la carte au trésor</button>
+                <h2>Les accords enchantés 🎪</h2>
+                <div class="section-intro">
+                    <p>Découvre comment créer de la magie en combinant plusieurs notes ensemble !</p>
+                    <div class="fun-fact">
+                        <p>🌟 Le savais-tu ? Un accord, c'est comme une équipe de super-héros : chaque note a son super pouvoir !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-content-detail">
+                <div class="lesson-section">
+                    <h3>Les accords majeurs - L'équipe des joyeux 🌞</h3>
+                    <div class="chord-illustration">
+                        <img src="images/major-chord.svg" alt="Accord majeur illustré" class="lesson-illustration">
+                    </div>
+                    <p>Un accord majeur, c'est comme un sandwich magique avec trois ingrédients :</p>
+                    <ul class="friendly-chords">
+                        <li>1️⃣ La note de base (comme Do)</li>
+                        <li>2️⃣ La note du milieu (comme Mi)</li>
+                        <li>3️⃣ La note du dessus (comme Sol)</li>
+                    </ul>
+                    <div class="example-box">
+                        <p>Par exemple, l'accord de Do majeur, c'est comme un sandwich Do-Mi-Sol !</p>
+                    </div>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>Les accords mineurs - L'équipe des rêveurs 🌙</h3>
+                    <div class="chord-illustration">
+                        <img src="images/minor-chord.svg" alt="Accord mineur illustré" class="lesson-illustration">
+                    </div>
+                    <p>Un accord mineur est comme un sandwich mystérieux :</p>
+                    <ul class="friendly-chords">
+                        <li>1️⃣ La note de base (comme La)</li>
+                        <li>2️⃣ La note du milieu (comme Do)</li>
+                        <li>3️⃣ La note du dessus (comme Mi)</li>
+                    </ul>
+                </div>
+
+                <div class="fun-exercise">
+                    <h3>Jeu : La fabrique d'accords 🏭</h3>
+                    <p>Crée tes propres accords magiques :</p>
+                    <ol>
+                        <li>1. Choisis une note de départ</li>
+                        <li>2. Ajoute deux notes au-dessus</li>
+                        <li>3. Joue-les ensemble</li>
+                        <li>4. Écoute la magie !</li>
+                    </ol>
+                    <div class="achievement">
+                        <p>🏆 Tu deviens un "Maître des Accords" !</p>
+                    </div>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>Les tons et demi-tons : les briques de la musique 🏗️</h3>
+                    
+                    <div class="theory-illustration">
+                        <img src="images/tones-semitones.svg" alt="Illustration des tons et demi-tons" class="lesson-illustration">
+                    </div>
+
+                    <div class="theory-explanation">
+                        <h4>Qu'est-ce qu'un demi-ton ? 🤔</h4>
+                        <p>Un demi-ton, c'est la plus petite distance entre deux notes sur le piano.</p>
+                        <ul class="semitone-examples">
+                            <li>Entre une touche blanche et une touche noire voisine</li>
+                            <li>Entre deux touches blanches quand il n'y a pas de touche noire entre elles (E→F et B→C)</li>
+                        </ul>
+
+                        <div class="fun-fact">
+                            <p>🌟 Le savais-tu ? Sur un piano, les touches noires sont toujours placées par groupes de 2 et 3. C'est un repère super pratique !</p>
+                        </div>
+                    </div>
+
+                    <div class="theory-explanation">
+                        <h4>Et un ton alors ? 📏</h4>
+                        <p>Un ton, c'est comme faire deux petits pas au lieu d'un : c'est la distance de deux demi-tons !</p>
+                        <ul class="tone-examples">
+                            <li>C→D : on passe par C# (1 demi-ton + 1 demi-ton = 1 ton)</li>
+                            <li>F→G : on passe par F# (1 demi-ton + 1 demi-ton = 1 ton)</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-box">
+                        <h4>À toi de jouer ! 🎮</h4>
+                        <p>Essaie de trouver sur ton piano :</p>
+                        <ol class="practice-steps">
+                            <li>Un demi-ton au-dessus de Do (C)</li>
+                            <li>Un ton au-dessus de Ré (D)</li>
+                            <li>Un demi-ton au-dessus de Mi (E)</li>
+                        </ol>
+                    </div>
+
+                    <div class="memory-aid">
+                        <h4>Astuce pour mémoriser 💡</h4>
+                        <p>Imagine que :</p>
+                        <ul>
+                            <li>Un demi-ton, c'est comme monter une petite marche</li>
+                            <li>Un ton, c'est comme monter une grande marche</li>
+                            <li>Entre E-F et B-C, il n'y a que des petites marches (demi-tons)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interactive-exercise">
+                    <h3>Vérifie ta compréhension ✨</h3>
+                    <div class="quiz-box">
+                        <p>Clique sur les touches pour entendre :</p>
+                        <ul class="tone-examples-interactive">
+                            <li>Do (C) → Do# (C#) : un demi-ton ↑</li>
+                            <li>Do (C) → Ré (D) : un ton ↑</li>
+                            <li>Mi (E) → Fa (F) : un demi-ton ↑</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gammes-section" class="lesson-content hidden">
+            <div class="section-header">
+                <button class="back-button" onclick="showSection('lesson-cards')">Retour à la carte au trésor</button>
+                <h2>Les gammes arc-en-ciel 🌈</h2>
+                <div class="section-intro">
+                    <p>Découvre comment les notes forment un magnifique escalier musical !</p>
+                    <div class="fun-fact">
+                        <p>🌟 Le savais-tu ? Une gamme, c'est comme une recette magique de 7 notes qui créent une mélodie !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-content-detail">
+                <div class="lesson-section">
+                    <h3>L'escalier des notes 🪜</h3>
+                    <div class="scale-illustration">
+                        <img src="images/scale-steps.svg" alt="Gamme illustrée comme un escalier" class="lesson-illustration">
+                    </div>
+                    <p>Imagine que tu montes un escalier magique :</p>
+                    <ul class="friendly-notes">
+                        <li>🎵 Do - La première marche, le début de l'aventure</li>
+                        <li>🎵 Ré - Un pas de plus vers le haut</li>
+                        <li>🎵 Mi - Tu continues à grimper</li>
+                        <li>🎵 Fa - La moitié du chemin !</li>
+                        <li>🎵 Sol - Presque en haut</li>
+                        <li>🎵 La - L'avant-dernière marche</li>
+                        <li>🎵 Si - La dernière marche avant de revenir à Do</li>
+                    </ul>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>Les gammes joyeuses (majeures) ☀️</h3>
+                    <p>Une gamme majeure, c'est comme un jour ensoleillé ! Elle suit cette recette magique :</p>
+                    <ul class="scale-pattern">
+                        <li>👣 Ton - Un grand pas</li>
+                        <li>👣 Ton - Encore un grand pas</li>
+                        <li>👣 Demi-ton - Un petit pas</li>
+                        <li>👣 Ton - Un grand pas</li>
+                        <li>👣 Ton - Un autre grand pas</li>
+                        <li>👣 Ton - Presque fini !</li>
+                        <li>👣 Demi-ton - Le dernier petit pas</li>
+                    </ul>
+                </div>
+
+                <div class="fun-exercise">
+                    <h3>Jeu : La course des gammes 🏃‍♂️</h3>
+                    <p>Deviens un athlète des gammes :</p>
+                    <ol>
+                        <li>1. Commence par Do</li>
+                        <li>2. Monte l'escalier note par note</li>
+                        <li>3. Redescends doucement</li>
+                        <li>4. Essaie d'aller de plus en plus vite !</li>
+                    </ol>
+                    <div class="achievement">
+                        <p>🏆 Tu deviens un "Champion des Gammes" !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="theorie-section" class="lesson-content hidden">
+            <div class="section-header">
+                <button class="back-button" onclick="showSection('lesson-cards')">Retour à la carte au trésor</button>
+                <h2>La magie de la musique 🔮</h2>
+                <div class="section-intro">
+                    <p>Entre dans le laboratoire secret de la musique ! Découvre les formules magiques qui créent de belles mélodies.</p>
+                    <div class="fun-fact">
+                        <p>🌟 Le savais-tu ? La musique a son propre langage secret, avec des symboles magiques !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-content-detail">
+                <div class="lesson-section">
+                    <h3>L'arbre des rythmes ⚡</h3>
+                    <div class="rhythm-illustration">
+                        <img src="images/rhythm-tree.svg" alt="Arbre des valeurs rythmiques" class="lesson-illustration">
+                    </div>
+                    <p>Le rythme, c'est comme le battement du cœur de la musique :</p>
+                    <ul class="rhythm-values">
+                        <li>🌳 La ronde : Je compte jusqu'à 4</li>
+                        <li>🌲 La blanche : Je compte jusqu'à 2</li>
+                        <li>🌱 La noire : Je compte 1</li>
+                        <li>🌿 La croche : Je compte vite (1/2)</li>
+                    </ul>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>Le grimoire des symboles 📖</h3>
+                    <p>Apprends les sorts musicaux :</p>
+                    <ul class="music-symbols">
+                        <li>🎼 La clé de Sol - La clé qui ouvre la porte de la musique</li>
+                        <li>♭ Le bémol - La formule pour rendre une note plus douce</li>
+                        <li>♯ Le dièse - Le sort pour rendre une note plus brillante</li>
+                        <li>♮ Le bécarre - La formule pour annuler un sort</li>
+                    </ul>
+                </div>
+
+                <div class="fun-exercise">
+                    <h3>Jeu : Le magicien du rythme 🎩</h3>
+                    <p>Crée tes propres sorts rythmiques :</p>
+                    <ol>
+                        <li>1. Tape dans tes mains en comptant jusqu'à 4</li>
+                        <li>2. Change de rythme à chaque tour</li>
+                        <li>3. Mélange différentes valeurs</li>
+                        <li>4. Invente ta formule magique !</li>
+                    </ol>
+                    <div class="achievement">
+                        <p>🏆 Tu deviens un "Maître du Rythme" !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="techniques-section" class="lesson-content hidden">
+            <div class="section-header">
+                <button class="back-button" onclick="showSection('lesson-cards')">Retour à la carte au trésor</button>
+                <h2>Les super pouvoirs du piano 🦸‍♂️</h2>
+                <div class="section-intro">
+                    <p>Apprends à utiliser tes super pouvoirs de pianiste ! Chaque doigt a sa mission spéciale.</p>
+                    <div class="fun-fact">
+                        <p>🌟 Le savais-tu ? Tes doigts sont comme une équipe de super-héros, chacun avec son propre pouvoir !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-content-detail">
+                <div class="lesson-section">
+                    <h3>La position magique des mains 🖐️</h3>
+                    <div class="hand-illustration">
+                        <img src="images/hand-position.svg" alt="Position des mains sur le clavier" class="lesson-illustration">
+                    </div>
+                    <p>Découvre les super pouvoirs de chaque doigt :</p>
+                    <ul class="finger-powers">
+                        <li>👍 Le pouce (1) - Le chef d'équipe, fort et agile</li>
+                        <li>☝️ L'index (2) - Le pointeur précis</li>
+                        <li>🖕 Le majeur (3) - Le plus grand et le plus stable</li>
+                        <li>💍 L'annulaire (4) - L'assistant fidèle</li>
+                        <li>🤙 L'auriculaire (5) - Le petit mais puissant</li>
+                    </ul>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>Les mouvements secrets 🥋</h3>
+                    <p>Maîtrise ces techniques spéciales :</p>
+                    <ul class="special-moves">
+                        <li>🎯 Le toucher léger - Caresse les touches comme une plume</li>
+                        <li>💪 Le toucher fort - Appuie avec puissance mais contrôle</li>
+                        <li>🏃‍♂️ Le passage du pouce - Fais passer ton pouce sous les autres doigts</li>
+                        <li>🦋 Le legato - Relie les notes comme un papillon qui vole</li>
+                        <li>🦘 Le staccato - Rebondis sur les touches comme un kangourou</li>
+                    </ul>
+                </div>
+
+                <div class="fun-exercise">
+                    <h3>Jeu : L'entraînement du super-héros 🎮</h3>
+                    <p>Deviens plus fort chaque jour :</p>
+                    <ol>
+                        <li>1. Place tes mains comme sur l'image</li>
+                        <li>2. Exerce chaque doigt un par un</li>
+                        <li>3. Commence lentement puis accélère</li>
+                        <li>4. Mélange les techniques !</li>
+                    </ol>
+                    <div class="achievement">
+                        <p>🏆 Tu deviens un "Super-Héros du Piano" !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="exercices-section" class="lesson-content hidden">
+            <div class="section-header">
+                <button class="back-button" onclick="showSection('lesson-cards')">Retour à la carte au trésor</button>
+                <h2>Les jeux musicaux 🎮</h2>
+                <div class="section-intro">
+                    <p>Bienvenue dans la salle d'arcade musicale ! Ici, on apprend en s'amusant avec des mini-jeux super cool.</p>
+                    <div class="fun-fact">
+                        <p>🌟 Le savais-tu ? Les plus grands pianistes ont commencé par jouer en s'amusant !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-content-detail">
+                <div class="lesson-section">
+                    <h3>La chasse aux notes 🎯</h3>
+                    <div class="game-illustration">
+                        <img src="images/music-minigames.svg" alt="Mini-jeux musicaux" class="lesson-illustration">
+                    </div>
+                    <p>Deviens un chasseur de notes expert !</p>
+                    <div class="game-rules">
+                        <h4>Comment jouer :</h4>
+                        <ol>
+                            <li>Une note s'affiche sur l'écran</li>
+                            <li>Trouve-la sur le clavier</li>
+                            <li>Plus tu es rapide, plus tu gagnes de points</li>
+                            <li>Attention aux pièges : parfois la note se cache !</li>
+                        </ol>
+                        <div class="game-levels">
+                            <p>Niveaux :</p>
+                            <ul>
+                                <li>🌱 Niveau 1 : Notes blanches</li>
+                                <li>🌿 Niveau 2 : Notes noires</li>
+                                <li>🌳 Niveau 3 : Toutes les notes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>La course des gammes 🏃‍♂️</h3>
+                    <p>Transforme les gammes en course passionnante !</p>
+                    <div class="game-rules">
+                        <h4>Règles du jeu :</h4>
+                        <ol>
+                            <li>Choisis ta gamme préférée</li>
+                            <li>Suis le tempo du métronome</li>
+                            <li>Joue les notes dans l'ordre</li>
+                            <li>Gagne des points bonus pour la précision</li>
+                        </ol>
+                        <div class="game-modes">
+                            <p>Modes de jeu :</p>
+                            <ul>
+                                <li>🐢 Mode tortue : Pour bien apprendre</li>
+                                <li>🐰 Mode lapin : Pour aller plus vite</li>
+                                <li>🦘 Mode kangourou : Pour les champions !</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-section">
+                    <h3>Le piano coloré 🎨</h3>
+                    <p>Crée de la musique avec des couleurs magiques !</p>
+                    <div class="game-rules">
+                        <h4>Comment ça marche :</h4>
+                        <ol>
+                            <li>Chaque note a sa couleur spéciale</li>
+                            <li>Suis les couleurs qui s'allument</li>
+                            <li>Reproduis la mélodie</li>
+                            <li>Crée tes propres mélodies colorées</li>
+                        </ol>
+                        <div class="color-code">
+                            <p>Code des couleurs :</p>
+                            <ul>
+                                <li>🔴 Do - Rouge comme un cœur qui bat</li>
+                                <li>🟡 Mi - Jaune comme le soleil</li>
+                                <li>🔵 Sol - Bleu comme le ciel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fun-exercise">
+                    <h3>Défi : Deviens le champion des jeux ! 🏆</h3>
+                    <p>Collecte des étoiles dans chaque jeu :</p>
+                    <ul class="achievements-list">
+                        <li>⭐ 3 étoiles : Niveau expert</li>
+                        <li>⭐⭐ 6 étoiles : Super champion</li>
+                        <li>⭐⭐⭐ 9 étoiles : Maître du piano</li>
+                    </ul>
+                    <div class="achievement">
+                        <p>🏆 Collectionne toutes les étoiles pour devenir une légende du piano !</p>
+                    </div>
+                </div>
+
+                <div class="game-container">
+                    <div class="game-header">
+                        <div id="game-score">Score: 0</div>
+                        <div id="time-remaining">5.0</div>
+                        <div id="current-streak">Série: 0</div>
+                    </div>
+                    
+                    <div class="game-display">
+                        <div id="target-note" class="target-note"></div>
+                        <div id="note-feedback" class="feedback"></div>
+                    </div>
+
+                    <div class="difficulty-buttons">
+                        <button id="easy-mode" class="game-button easy">🌱 Mode Facile</button>
+                        <button id="medium-mode" class="game-button medium">🌿 Mode Moyen</button>
+                        <button id="hard-mode" class="game-button hard">🌳 Mode Difficile</button>
+                    </div>
+
+                    <div id="piano-keyboard" class="game-piano">
+                        <!-- Les touches seront générées par JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="learn.js"></script>
+    <script src="games.js"></script>
+</body>
+</html>

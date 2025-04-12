@@ -1,0 +1,2680 @@
+/* Reset du positionnement */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.content {
+    min-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Styles des sections */
+.lesson-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: var(--bg);
+    overflow-y: auto;
+}
+
+.lesson-content.active {
+    display: block;
+}
+
+.lesson-content-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-header {
+    background: var(--bg);
+    padding: 20px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 30px;
+}
+
+/* Ajustement du conteneur principal */
+.lesson-cards {
+    padding-top: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+}
+
+.lesson {
+    margin-bottom: 40px;
+}
+
+.lesson h2 {
+    color: var(--accent-color);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.lesson p {
+    color: var(--text-color);
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.lesson-card {
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+}
+
+.lesson-image {
+    width: 100%;
+    max-width: 200px;
+    margin: 15px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.interactive-keyboard img, .chord-illustration img {
+    max-width: 300px;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+}
+
+.lesson-illustration {
+    max-width: 250px;
+    height: auto;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.lesson-illustration:hover {
+    transform: scale(1.05);
+}
+
+.friendly-notes, .friendly-chords {
+    list-style: none;
+    padding: 0;
+}
+
+.friendly-notes li, .friendly-chords li {
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 165, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fun-fact {
+    background: rgba(255, 165, 0, 0.15);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid var(--accent);
+}
+
+.fun-exercise {
+    background: rgba(255, 165, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.achievement {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    color: var(--bg);
+    text-align: center;
+    font-weight: bold;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.example-box {
+    background: rgba(255, 165, 0, 0.2);
+    border: 2px dashed var(--accent);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.interactive-keyboard {
+    max-width: 100%;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chord-illustration {
+    max-width: 300px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.start-button {
+    background: linear-gradient(45deg, var(--accent), #FFD700);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    color: var(--bg);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.start-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+}
+
+.back-button {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--accent);
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: var(--accent);
+    margin: 25px 0 15px;
+}
+
+.section-intro p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.scale-diagram {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    background: var(--control-bg);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.note, .interval {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.note {
+    background: var(--accent-color);
+    color: white;
+}
+
+.interval {
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.info-card {
+    background: var(--control-bg);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--accent);
+}
+
+.info-card.wide {
+    grid-column: 1 / -1;
+}
+
+.note-symbol {
+    font-size: 2em;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.rhythm-pattern {
+    font-size: 1.5em;
+    color: var(--accent-color);
+    margin: 10px 0;
+}
+
+:root {
+    --main-bg: #1a1a1a;
+    --key-white: #f5f5f5;
+    --key-black: #222;
+    --accent-color: #daa520;
+    --text-color: #f5f5f5;
+    --control-bg: #333;
+    --button-hover: #444;
+    --primary-color: #daa520;
+    --secondary-color: #666;
+    --dark-color: #1a1a1a;
+    --light-color: #f5f5f5;
+    --bg-secondary: #333;
+    --text-primary: #f5f5f5;
+    --text-secondary: #666;
+    --accent: #daa520;
+    --accent-dark: #444;
+    --bg-tertiary: #444;
+    --bg: #1a1a1a;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: linear-gradient(45deg, #1a1a1a 25%, #222 25%, #222 50%, #1a1a1a 50%, #1a1a1a 75%, #222 75%, #222 100%);
+    background-size: 10px 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+button, select {
+    background: var(--control-bg);
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+button:hover, select:hover {
+    background: var(--button-hover);
+    box-shadow: 3px 3px 0 var(--accent-color);
+    transform: translate(-3px, -3px);
+}
+
+#metronome {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: var(--control-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.beat-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.beat-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
+    border-radius: 50%;
+    transition: background-color 0.1s;
+    border: 1px solid var(--accent-color);
+}
+
+.beat-dot.active {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+#bpm-display {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#bpm-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 8px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+#piano {
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+    position: relative;
+    user-select: none;
+    background: #2a2a2a;
+    padding: 20px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 5px 5px 0 #000;
+    border-radius: 5px;
+}
+
+.octave {
+    display: flex;
+    position: relative;
+    height: 200px;
+}
+
+.white-key {
+    width: 40px;
+    height: 200px;
+    background: var(--key-white);
+    border: 1px solid #000;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    margin-right: -1px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 10px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.1s ease;
+}
+
+.black-key {
+    width: 30px;
+    height: 120px;
+    background: var(--key-black);
+    position: absolute;
+    border-radius: 0 0 3px 3px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.1s ease;
+}
+
+.black-key[data-note$="#3"],
+.black-key[data-note$="#4"],
+.black-key[data-note$="#5"] {
+    transform: translateX(-15px);
+}
+
+.octave .black-key[data-note^="C#"] { left: 25px; }
+.octave .black-key[data-note^="D#"] { left: 65px; }
+.octave .black-key[data-note^="F#"] { left: 145px; }
+.octave .black-key[data-note^="G#"] { left: 185px; }
+.octave .black-key[data-note^="A#"] { left: 225px; }
+
+.white-key:hover {
+    background-color: #f0f0f0;
+}
+
+.black-key:hover {
+    background-color: #222;
+}
+
+.white-key.playing {
+    background-color: var(--accent-color);
+}
+
+.black-key.playing {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.white-key.chord-highlight {
+    background-color: var(--accent-color);
+    opacity: 0.7;
+}
+
+.black-key.chord-highlight {
+    background-color: var(--accent-color);
+    opacity: 0.7;
+}
+
+.white-key.chord-highlight.played-correct {
+    box-shadow: 0 0 10px var(--accent-color);
+    opacity: 1;
+}
+
+.black-key.chord-highlight.played-correct {
+    box-shadow: 0 0 10px var(--accent-color);
+    opacity: 1;
+}
+
+.note-name {
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.black-key .note-name {
+    color: #ffffff;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.finger-number {
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: #000000;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.black-key .finger-number {
+    background-color: #ffffff;
+    color: #000000;
+    bottom: 55px;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.white-key .finger-number {
+    background-color: #ffffff;
+    color: #000000;
+    bottom: 40px;
+}
+
+.controls {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: var(--control-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--accent-color);
+}
+
+.scale-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.scale-selector select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    background: var(--control-bg);
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+}
+
+.scale-selector select:focus {
+    border-color: var(--accent-color);
+}
+
+#chord-display {
+    text-align: center;
+    margin: 20px 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+#chord-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.chord-button {
+    padding: 8px 16px;
+    background-color: var(--control-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.chord-button:hover {
+    background-color: var(--button-hover);
+    box-shadow: 3px 3px 0 var(--accent-color);
+    transform: translate(-3px, -3px);
+}
+
+.chord-button.active {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+.metronome-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#metronome-volume {
+    width: 100px;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ddd;
+    border-radius: 2px;
+    outline: none;
+}
+
+#metronome-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#metronome-volume::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volume-value {
+    min-width: 45px;
+    font-size: 14px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 150px; /* Décalage pour éviter le logo */
+}
+
+nav a {
+    padding: 8px 16px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav a.active {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+/* Contrôles d'entraînement */
+.practice-controls {
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--control-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid var(--accent-color);
+}
+
+.settings {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.settings label {
+    margin-right: 5px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#progression-length {
+    width: 60px;
+    background: var(--control-bg);
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+}
+
+#generate-progression {
+    padding: 8px 16px;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#generate-progression:hover {
+    background-color: var(--button-hover);
+    box-shadow: 3px 3px 0 var(--accent-color);
+    transform: translate(-3px, -3px);
+}
+
+/* Affichage de la progression */
+.progression-display {
+    margin: 20px 0;
+    text-align: center;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+#chord-sequence {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.sequence-chord {
+    padding: 15px 25px;
+    background-color: var(--control-bg);
+    border: 2px solid var(--accent-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sequence-chord.current {
+    border-color: var(--accent-color);
+    background-color: var(--light-color);
+    font-weight: bold;
+    box-shadow: 3px 3px 0 var(--accent-color);
+    transform: translate(-3px, -3px);
+}
+
+#current-chord {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* Statistiques */
+.practice-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--control-bg);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 2px solid var(--accent-color);
+}
+
+#accuracy, #streak {
+    font-size: 1.1em;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#reset-stats {
+    padding: 6px 12px;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#reset-stats:hover {
+    background-color: var(--button-hover);
+    box-shadow: 3px 3px 0 var(--accent-color);
+    transform: translate(-3px, -3px);
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 10;
+}
+
+.logo img {
+    height: 120px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajout des styles pour les sections de leçon */
+
+.lesson-cards,
+.lesson-content {
+    display: none;
+}
+
+.lesson-cards.active,
+.lesson-content.active {
+    display: block;
+}
+
+.lesson-section {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid var(--accent);
+}
+
+.lesson-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.lesson-section p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.lesson-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: var(--text-secondary);
+}
+
+.practice-tips {
+    background: var(--bg-tertiary);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 2px solid var(--accent);
+}
+
+.practice-tips h3 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.practice-tips ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: var(--text-secondary);
+}
+
+.back-button {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: 2px solid var(--accent);
+}
+
+.back-button:hover {
+    background: var(--bg-tertiary);
+}
+
+.try-button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.try-button:hover {
+    background: var(--accent-dark);
+}
+
+.practice-tip {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: 2px solid var(--accent);
+}
+
+.practice-tip h4 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.piano-diagram {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.piano-diagram img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.section-intro {
+    background: var(--accent);
+    color: var(--dark-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 0;
+}
+
+.section-intro h3 {
+    margin-top: 0;
+    color: var(--bg-primary);
+}
+
+.astuce {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.astuce h4 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.section-header {
+    background: var(--bg);
+    padding: 20px;
+    margin: 0 0 30px 0;
+    border-bottom: 2px solid var(--accent);
+    width: 100%;
+}
+
+.section-header h2 {
+    margin: 10px 0;
+}
+
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lesson-content {
+    display: none;
+    padding: 20px;
+    background: var(--bg);
+    min-height: 100vh;
+    position: relative;
+}
+
+.lesson-content.active {
+    display: block;
+}
+
+.lesson-content-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styles pour les cartes de leçon */
+.lesson-preview {
+    background: rgba(255, 165, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.lesson-points {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.lesson-points li {
+    margin: 8px 0;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.lesson-points li:hover {
+    transform: translateX(5px);
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.lesson-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.lesson-card p {
+    font-size: 1.1em;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* Animation pour les illustrations */
+.lesson-illustration {
+    transition: transform 0.3s ease;
+}
+
+.lesson-illustration:hover {
+    transform: scale(1.05);
+}
+
+/* Styles pour les boutons */
+.start-button {
+    margin-top: auto;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+/* Styles pour le contenu des leçons */
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 165, 0, 0.1);
+    border-radius: 15px;
+}
+
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.fun-fact {
+    background: rgba(78, 205, 196, 0.1);
+    border-left: 4px solid var(--accent);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.lesson-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.lesson-section h3 {
+    color: var(--accent);
+    font-size: 1.6em;
+    margin-bottom: 1rem;
+}
+
+.interactive-keyboard, .chord-illustration {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.friendly-notes, .friendly-chords {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.friendly-notes li, .friendly-chords li {
+    margin: 0.8rem 0;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.friendly-notes li:hover, .friendly-chords li:hover {
+    transform: translateX(10px);
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.fun-exercise {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 165, 0, 0.1));
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.fun-exercise h3 {
+    color: var(--accent);
+    font-size: 1.4em;
+}
+
+.fun-exercise ol {
+    padding-left: 1.5rem;
+}
+
+.fun-exercise li {
+    margin: 0.8rem 0;
+}
+
+.achievement {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+}
+
+.achievement p {
+    font-size: 1.2em;
+    color: var(--accent);
+}
+
+.example-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Styles pour les gammes */
+.scale-pattern li {
+    background: rgba(255, 165, 0, 0.05);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.scale-pattern li:hover {
+    transform: translateX(10px);
+    background: rgba(255, 165, 0, 0.1);
+}
+
+/* Styles pour la théorie musicale */
+.rhythm-values li, .music-symbols li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    padding: 8px;
+    background: rgba(78, 205, 196, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.rhythm-values li:hover, .music-symbols li:hover {
+    background: rgba(78, 205, 196, 0.1);
+    transform: scale(1.02);
+}
+
+/* Styles pour les techniques */
+.finger-powers li, .special-moves li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+    padding: 12px;
+    background: rgba(255, 107, 107, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.finger-powers li:hover, .special-moves li:hover {
+    background: rgba(255, 107, 107, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Styles pour les illustrations spécifiques */
+.scale-illustration, .rhythm-illustration, .hand-illustration {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.scale-illustration img, .rhythm-illustration img, .hand-illustration img {
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Animation pour les badges de réussite */
+.achievement {
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+}
+
+/* Styles pour les jeux */
+.game-illustration {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.game-rules {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.game-rules h4 {
+    color: var(--accent);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.game-levels, .game-modes, .color-code {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.game-levels ul, .game-modes ul, .color-code ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.game-levels li, .game-modes li, .color-code li {
+    margin: 8px 0;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.game-levels li:hover, .game-modes li:hover, .color-code li:hover {
+    transform: translateX(5px);
+}
+
+.achievements-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.achievements-list li {
+    background: rgba(255, 215, 0, 0.1);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.achievements-list li:hover {
+    transform: scale(1.05);
+    background: rgba(255, 215, 0, 0.2);
+}
+
+/* Styles pour le jeu de piano */
+.game-container {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+#game-score, #time-remaining, #current-streak {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.game-display {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.target-note {
+    font-size: 3em;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    margin: 20px 0;
+}
+
+.feedback {
+    font-size: 1.5em;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.feedback.correct {
+    color: #4CAF50;
+}
+
+.feedback.incorrect {
+    color: #f44336;
+}
+
+.difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.game-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.game-button.easy {
+    background: #4CAF50;
+    color: white;
+}
+
+.game-button.medium {
+    background: #FF9800;
+    color: white;
+}
+
+.game-button.hard {
+    background: #f44336;
+    color: white;
+}
+
+.game-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-piano {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    position: relative;
+    height: 180px;
+}
+
+.octave {
+    position: relative;
+    display: flex;
+    margin: 0 2px;
+}
+
+.piano-key {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    box-sizing: border-box;
+}
+
+.piano-key.white {
+    width: 40px;
+    height: 180px;
+    background: white;
+    border: 1px solid #333;
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+}
+
+.piano-key.black {
+    width: 24px;
+    height: 100px;
+    background: #333;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-radius: 0 0 3px 3px;
+}
+
+.piano-key.target {
+    background: var(--accent);
+}
+
+.piano-key.white.target {
+    background: linear-gradient(to bottom, var(--accent) 0%, #ffd700 100%);
+}
+
+.piano-key.black.target {
+    background: linear-gradient(to bottom, var(--accent) 0%, #b8860b 100%);
+}
+
+.piano-key:active, .piano-key.pressed {
+    transform: translateY(2px);
+}
+
+.piano-key.white:active, .piano-key.white.pressed {
+    background: #eee;
+}
+
+.piano-key.black:active, .piano-key.black.pressed {
+    background: #222;
+}
+
+/* Styles pour la section des tons et demi-tons */
+.theory-illustration {
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.theory-explanation {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.theory-explanation h4 {
+    color: var(--accent);
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.semitone-examples, .tone-examples {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.semitone-examples li, .tone-examples li {
+    background: rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.semitone-examples li:hover {
+    transform: translateX(10px);
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.tone-examples li:hover {
+    transform: translateX(10px);
+    background: rgba(78, 205, 196, 0.1);
+}
+
+.practice-box {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 25px 0;
+}
+
+.practice-steps {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.practice-steps li {
+    margin: 10px 0;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+}
+
+.memory-aid {
+    background: rgba(147, 112, 219, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.memory-aid ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.memory-aid li {
+    margin: 8px 0;
+    padding: 8px;
+    background: rgba(147, 112, 219, 0.05);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.memory-aid li:hover {
+    transform: translateX(5px);
+    background: rgba(147, 112, 219, 0.1);
+}
+
+.quiz-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.tone-examples-interactive li {
+    cursor: pointer;
+    padding: 12px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.tone-examples-interactive li:hover {
+    transform: scale(1.02);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+/* Style pour le groupe de boutons dans les pages practice et improvisation */
+.button-group {
+    display: flex;
+    gap: 15px; /* Espace entre les boutons */
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.button-group button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-group button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour la fenu00eatre modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: #222;
+    color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Styles pour les filtres de pu00e9riode dans la popup progru00e8s */
+.progress-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.period-btn {
+    padding: 8px 15px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.period-btn.active {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+.period-btn:hover {
+    background-color: #444;
+}
+
+/* Styles pour le conteneur du graphique */
+.chart-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+/* Styles pour le ru00e9sumu00e9 des statistiques */
+.stats-summary {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    border-radius: 8px;
+    min-width: 120px;
+    flex: 1;
+    margin: 0 10px 10px 0;
+}
+
+.stat-box h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.stat-box p {
+    font-size: 1.5rem;
+    margin: 10px 0 0 0;
+    color: #fff;
+}
+
+/* Styles pour les boutons d'export/import */
+.data-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.data-btn {
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.data-btn:hover {
+    background-color: #3d8b3d;
+}
+
+#import-data {
+    background-color: #ff9800;
+}
+
+#import-data:hover {
+    background-color: #e68900;
+}
+
+/* Styles pour le guide d'improvisation */
+.impro-guide {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--control-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--accent-color);
+}
+
+.impro-guide h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    font-size: 1.8em;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.impro-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.impro-tab {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--button-bg);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.impro-tab:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.impro-tab.active {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+.impro-content {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.impro-tab-content {
+    display: none;
+}
+
+.impro-tab-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+.impro-tab-content h4 {
+    margin-bottom: 15px;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.impro-tab-content ul {
+    list-style-type: none;
+    padding-left: 5px;
+}
+
+.impro-tab-content li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.impro-tab-content li:before {
+    content: '🎵';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Styles pour les cartes de gammes */
+.scale-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.scale-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.scale-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scale-card h5 {
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.scale-card p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.scale-pattern {
+    text-align: center;
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Styles pour les motifs */
+.pattern-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.pattern {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.pattern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pattern h5 {
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.pattern p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.pattern-visual {
+    text-align: center;
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-bottom: 12px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    .scale-info, .pattern-examples {
+        grid-template-columns: 1fr;
+    }
+    
+    .impro-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .impro-tab {
+        flex-grow: 1;
+        text-align: center;
+        padding: 8px;
+    }
+}
+
+.pattern {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.pattern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pattern h5 {
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.pattern p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.pattern-visual {
+    text-align: center;
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-bottom: 12px;
+}
+
+/* Styles pour les du00e9tails des motifs d'improvisation */
+.pattern-details {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    font-size: 0.85em;
+}
+
+.pattern-details p {
+    margin-bottom: 8px;
+}
+
+.pattern-details ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.pattern-details li {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.pattern-details strong {
+    color: var(--accent-color);
+}
+
+/* Styles pour la section d'expressivitu00e9 u00e9motionnelle */
+.intro-text {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+.emotion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.emotion-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.emotion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color);
+    opacity: 0.7;
+}
+
+.emotion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.emotion-card h5 {
+    color: var(--accent-color);
+    margin-bottom: 12px;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.emotion-icon {
+    font-size: 1.8em;
+    margin-bottom: 12px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.emotion-tips {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.emotion-tips li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.emotion-tips li::before {
+    content: '\25BA';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.emotion-example {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    font-style: italic;
+    margin-top: 10px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.emotion-practice {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.emotion-practice h5 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.emotion-practice ol {
+    padding-left: 25px;
+}
+
+.emotion-practice li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.emotion-practice strong {
+    color: var(--accent-color);
+}
+
+/* Styles pour les tablettes et mobiles */
+@media (max-width: 768px) {
+    .emotion-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .emotion-card {
+        padding: 12px;
+    }
+    
+    .emotion-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+    }
+}
+
+/* Styles pour la section des mu00e9lodies courtes (licks & motifs) */
+.motif-importance {
+    margin-bottom: 25px;
+}
+
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.advantage-item {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: transform 0.3s ease;
+}
+
+.advantage-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.advantage-icon {
+    font-size: 1.5em;
+    color: var(--accent-color);
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.advantage-text {
+    flex-grow: 1;
+}
+
+.advantage-text strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.05em;
+}
+
+.advantage-text p {
+    font-size: 0.85em;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.lick-examples {
+    margin-bottom: 25px;
+}
+
+.lick-collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.lick-item {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.lick-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lick-item h6 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.lick-notation {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.note {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.lick-item:hover .note {
+    background-color: rgba(var(--accent-rgb), 0.2);
+    transform: translateY(-2px);
+}
+
+.lick-item p {
+    font-size: 0.85em;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Styles pour les techniques de du00e9veloppement */
+.motif-techniques {
+    margin-bottom: 25px;
+}
+
+.technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.technique-card {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.technique-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.technique-card h6 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.technique-card p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.technique-example {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    text-align: center;
+    font-family: monospace;
+    color: var(--accent-color);
+    margin-top: 10px;
+}
+
+/* Styles pour la mu00e9thode d'apprentissage */
+.practice-method {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.practice-method h5 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.practice-method ol {
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.practice-method li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.practice-method strong {
+    color: var(--accent-color);
+}
+
+.quote {
+    font-style: italic;
+    border-left: 3px solid var(--accent-color);
+    padding: 10px 20px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9em;
+    color: #e0e0e0;
+}
+
+/* RWD pour les petits u00e9crans */
+@media (max-width: 768px) {
+    .advantages, .lick-collection, .technique-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .advantage-item {
+        padding: 12px;
+    }
+    
+    .advantage-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3em;
+    }
+    
+    .lick-notation {
+        flex-wrap: wrap;
+    }
+    
+    .note {
+        margin-bottom: 5px;
+    }
+}
+
+/* Styles pour la page u00c0 propos */
+.about-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.about-container h1 {
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.about-section {
+    margin-bottom: 50px;
+    background-color: var(--control-bg);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--accent-color);
+}
+
+.about-section h2 {
+    color: var(--accent-color);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0 #000;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* Styles pour les icu00f4nes de mission */
+.mission-icons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.mission-icon {
+    text-align: center;
+    width: 220px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.mission-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mission-icon .icon {
+    font-size: 3em;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.mission-icon h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* Styles pour les profils d'utilisateurs */
+.user-profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.profile-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 8px;
+}
+
+.profile-card ul {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.profile-card li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.profile-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profile-card a:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour les fonctionnalitu00e9s */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.feature-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.feature-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.feature-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* Styles pour la pu00e9dagogie */
+.pedagogy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.pedagogy-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pedagogy-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* Styles pour les tu00e9moignages */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.testimonials blockquote {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    margin: 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.testimonials blockquote:before {
+    content: 'u201C';
+    font-size: 3em;
+    color: rgba(var(--accent-rgb), 0.2);
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.testimonials blockquote p {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonials cite {
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Styles pour la section CTA */
+.cta-section {
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--button-bg);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Styles responsive */
+@media (max-width: 768px) {
+    .mission-icons, .user-profiles, .features, .pedagogy, .testimonials {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-container {
+        padding: 15px;
+    }
+    
+    .about-section {
+        padding: 15px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .mission-icon {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}
