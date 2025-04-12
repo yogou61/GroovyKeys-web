@@ -159,7 +159,12 @@ const loadPianoSounds = () => {
                 const flatNotes = {'C#': 'Db', 'D#': 'Eb', 'F#': 'Gb', 'G#': 'Ab', 'A#': 'Bb'};
                 fileName = flatNotes[note];
             }
-            const soundPath = `piano-mp3/${fileName}${octave}.mp3`;
+            // Utiliser un chemin absolu pour compatibilité avec GitHub Pages
+            const repoName = 'GroovyKeys-web'; // Nom exact du dépôt GitHub
+            const isGitHubPages = window.location.hostname.includes('github.io');
+            const soundPath = isGitHubPages ? 
+                `/${repoName}/piano-mp3/${fileName}${octave}.mp3` : 
+                `piano-mp3/${fileName}${octave}.mp3`;
             pianoSounds[`${note}${octave}`] = soundPath;
             
             // Précharger l'audio silencieusement pour une meilleure réactivité

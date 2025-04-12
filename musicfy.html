@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groovy Keys - Musicfy</title>
+  <link rel="icon" href="raccourci.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logo">
+    <img src="logo.png" alt="Groovy Keys Logo">
+  </div>
+
+  <nav>
+    <a href="index.html">Piano</a>
+    <a href="practice.html">Entraînement</a>
+    <a href="improvisation.html">Improvisation</a>
+    <a href="learn.html">Apprendre</a>
+    <a href="musicfy.html" class="active">Musicfy</a>
+    <a href="about.html">À propos</a>
+  </nav>
+
+  <div class="musicfy-container">
+    <h2>Générateur de Musique avec Musicfy</h2>
+    <div class="musicfy-controls">
+      <div class="prompt-container">
+        <label for="music-prompt">Décrivez la musique que vous souhaitez :</label>
+        <input type="text" id="music-prompt" placeholder="Ex: Electronic guitar" class="prompt-input">
+      </div>
+      
+      <div class="genre-selector">
+        <label for="genre">Genre musical (optionnel) :</label>
+        <select id="genre">
+          <option value="">-- Sélectionnez un genre --</option>
+          <option value="Electronic">Électronique</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Classical">Classique</option>
+          <option value="Rock">Rock</option>
+          <option value="Hip Hop">Hip Hop</option>
+          <option value="Lo-Fi">Lo-Fi</option>
+        </select>
+      </div>
+      
+      <div class="instrument-selector">
+        <label for="instrument">Instrument principal (optionnel) :</label>
+        <select id="instrument">
+          <option value="">-- Sélectionnez un instrument --</option>
+          <option value="Piano">Piano</option>
+          <option value="Guitar">Guitare</option>
+          <option value="Drums">Batterie</option>
+          <option value="Bass">Basse</option>
+          <option value="Violin">Violon</option>
+          <option value="Saxophone">Saxophone</option>
+        </select>
+      </div>
+      
+      <button id="generate-button" class="generate-button">Générer</button>
+    </div>
+    
+    <div class="results-container">
+      <div id="loading" class="loading-indicator" style="display: none;">
+        <div class="spinner"></div>
+        <p>Génération en cours...</p>
+      </div>
+      
+      <div id="music-results" class="music-results">
+        <h3>Musiques générées</h3>
+        <div id="tracks-container" class="tracks-container">
+          <!-- Les pistes audio générées seront ajoutées ici -->
+          <p class="empty-state">Cliquez sur "Générer" pour créer de la musique</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="musicfy.js"></script>
+</body>
+</html>

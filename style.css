@@ -465,14 +465,14 @@ button:hover, select:hover {
 .black-key[data-note$="#3"],
 .black-key[data-note$="#4"],
 .black-key[data-note$="#5"] {
-    transform: translateX(-15px);
+    transform: translateX(-60%);
 }
 
-.octave .black-key[data-note^="C#"] { left: 25px; }
-.octave .black-key[data-note^="D#"] { left: 65px; }
-.octave .black-key[data-note^="F#"] { left: 145px; }
-.octave .black-key[data-note^="G#"] { left: 185px; }
-.octave .black-key[data-note^="A#"] { left: 225px; }
+.octave .black-key[data-note^="C#"] { left: 37px; }
+.octave .black-key[data-note^="D#"] { left: 77px; }
+.octave .black-key[data-note^="F#"] { left: 157px; }
+.octave .black-key[data-note^="G#"] { left: 197px; }
+.octave .black-key[data-note^="A#"] { left: 237px; }
 
 .white-key:hover {
     background-color: #f0f0f0;
@@ -1617,6 +1617,7 @@ nav a.active {
     gap: 15px; /* Espace entre les boutons */
     justify-content: center;
     margin-top: 15px;
+    flex-wrap: wrap;
 }
 
 .button-group button {
@@ -1642,7 +1643,7 @@ nav a.active {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles pour la fenu00eatre modale */
+/* Styles pour la fenu00e9tre modale */
 .modal {
     display: none;
     position: fixed;
@@ -1964,59 +1965,6 @@ nav a.active {
     to { opacity: 1; }
 }
 
-/* Responsive pour les petits écrans */
-@media (max-width: 768px) {
-    .scale-info, .pattern-examples {
-        grid-template-columns: 1fr;
-    }
-    
-    .impro-tabs {
-        flex-wrap: wrap;
-    }
-    
-    .impro-tab {
-        flex-grow: 1;
-        text-align: center;
-        padding: 8px;
-    }
-}
-
-.pattern {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.pattern:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.pattern h5 {
-    color: var(--accent-color);
-    margin-bottom: 8px;
-    font-size: 1.2em;
-}
-
-.pattern p {
-    font-size: 0.9em;
-    margin-bottom: 10px;
-}
-
-.pattern-visual {
-    text-align: center;
-    font-family: monospace;
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 1.2em;
-    letter-spacing: 2px;
-    color: var(--accent-color);
-    margin-bottom: 12px;
-}
-
 /* Styles pour les du00e9tails des motifs d'improvisation */
 .pattern-details {
     margin-top: 12px;
@@ -2161,6 +2109,17 @@ nav a.active {
 
 .emotion-practice strong {
     color: var(--accent-color);
+}
+
+.quote {
+    font-style: italic;
+    border-left: 3px solid var(--accent-color);
+    padding: 10px 20px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9em;
+    color: #e0e0e0;
 }
 
 /* Styles pour les tablettes et mobiles */
@@ -2677,4 +2636,178 @@ footer {
         max-width: 250px;
         margin: 0 auto;
     }
+}
+
+/* Styles pour la page Musicfy */
+.musicfy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.musicfy-controls {
+    background-color: var(--control-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.prompt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prompt-input {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--accent-color);
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    width: 100%;
+}
+
+.genre-selector, .instrument-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.generate-button {
+    background: linear-gradient(45deg, var(--accent-color), #FFD700);
+    color: var(--main-bg);
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    align-self: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.generate-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(218, 165, 32, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--accent-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.tracks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.track-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s ease;
+}
+
+.track-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.track-prompt {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.track-date {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+}
+
+.track-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.track-controls audio {
+    flex-grow: 1;
+    height: 40px;
+    background-color: var(--control-bg);
+    border-radius: 5px;
+}
+
+.download-button, .delete-button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.download-button {
+    background-color: var(--accent-color);
+    color: var(--main-bg);
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.download-button:hover, .delete-button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.error-message {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-left: 4px solid #e74c3c;
+    padding: 15px;
+    margin: 15px 0;
+    color: #e74c3c;
+    border-radius: 0 5px 5px 0;
 }
