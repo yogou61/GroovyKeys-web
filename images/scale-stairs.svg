@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Escalier -->
+    <rect x="50" y="250" width="50" height="30" fill="#FF6B6B"/>
+    <rect x="100" y="220" width="50" height="60" fill="#4ECDC4"/>
+    <rect x="150" y="190" width="50" height="90" fill="#FFD93D"/>
+    <rect x="200" y="160" width="50" height="120" fill="#95E1D3"/>
+    <rect x="250" y="130" width="50" height="150" fill="#A8E6CF"/>
+    <rect x="300" y="100" width="50" height="180" fill="#FF8B94"/>
+    <!-- Notes -->
+    <text x="75" y="270" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">Do</text>
+    <text x="125" y="240" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">Ré</text>
+    <text x="175" y="210" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">Mi</text>
+    <text x="225" y="180" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">Fa</text>
+    <text x="275" y="150" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">Sol</text>
+    <text x="325" y="120" fill="#ffffff" font-family="Arial" font-size="20" text-anchor="middle">La</text>
+</svg>

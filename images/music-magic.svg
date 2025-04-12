@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Baguette magique -->
+    <line x1="150" y1="200" x2="300" y2="100" stroke="#FFD700" stroke-width="4"/>
+    <polygon points="300,100 310,95 315,105" fill="#FFD700"/>
+    <!-- Notes magiques -->
+    <path d="M180,150 Q200,100 220,150 T260,150" stroke="#FF6B6B" stroke-width="3" fill="none"/>
+    <circle cx="180" cy="150" r="5" fill="#FF6B6B"/>
+    <circle cx="220" cy="150" r="5" fill="#4ECDC4"/>
+    <circle cx="260" cy="150" r="5" fill="#FFD93D"/>
+    <!-- Étoiles -->
+    <path d="M100,80 L105,95 L120,95 L110,105 L115,120 L100,110 L85,120 L90,105 L80,95 L95,95 Z" fill="#ffffff"/>
+    <path d="M300,200 L305,215 L320,215 L310,225 L315,240 L300,230 L285,240 L290,225 L280,215 L295,215 Z" fill="#ffffff"/>
+    <!-- Texte -->
+    <text x="200" y="250" fill="#ffffff" font-family="Arial" font-size="24" text-anchor="middle">Magie Musicale</text>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Touches noires -->
+    <rect x="80" y="50" width="30" height="120" fill="#000000"/>
+    <rect x="130" y="50" width="30" height="120" fill="#000000"/>
+    <rect x="230" y="50" width="30" height="120" fill="#000000"/>
+    <rect x="280" y="50" width="30" height="120" fill="#000000"/>
+    <rect x="330" y="50" width="30" height="120" fill="#000000"/>
+    <!-- Noms des notes -->
+    <text x="95" y="190" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">Do#</text>
+    <text x="145" y="190" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">Ré#</text>
+    <text x="245" y="190" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">Fa#</text>
+    <text x="295" y="190" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">Sol#</text>
+    <text x="345" y="190" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">La#</text>
+</svg>

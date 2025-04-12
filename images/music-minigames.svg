@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="300" height="200" fill="#1a1a1a"/>
+    <!-- Écran de jeu -->
+    <rect x="50" y="30" width="200" height="140" fill="#2a2a2a" rx="10"/>
+    <!-- Touches de piano colorées -->
+    <rect x="70" y="50" width="30" height="80" fill="#FF6B6B" rx="5"/>
+    <rect x="110" y="50" width="30" height="80" fill="#4ECDC4" rx="5"/>
+    <rect x="150" y="50" width="30" height="80" fill="#FFD700" rx="5"/>
+    <rect x="190" y="50" width="30" height="80" fill="#95E1D3" rx="5"/>
+    <!-- Étoiles de score -->
+    <path d="M85,150 l2,-6 l2,6 l6,0 l-5,4 l2,6 l-5,-4 l-5,4 l2,-6 l-5,-4 z" fill="#FFD700"/>
+    <path d="M125,150 l2,-6 l2,6 l6,0 l-5,4 l2,6 l-5,-4 l-5,4 l2,-6 l-5,-4 z" fill="#FFD700"/>
+    <path d="M165,150 l2,-6 l2,6 l6,0 l-5,4 l2,6 l-5,-4 l-5,4 l2,-6 l-5,-4 z" fill="#FFD700"/>
+</svg>

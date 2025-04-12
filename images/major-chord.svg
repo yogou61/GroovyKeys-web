@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Touches de piano -->
+    <rect x="100" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <rect x="150" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <rect x="200" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <!-- Points colorés -->
+    <circle cx="120" cy="230" r="15" fill="#FFD700"/>
+    <circle cx="170" cy="230" r="15" fill="#FF6B6B"/>
+    <circle cx="220" cy="230" r="15" fill="#4ECDC4"/>
+    <!-- Lignes de connexion -->
+    <path d="M120,230 Q170,180 220,230" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <!-- Labels -->
+    <text x="120" y="80" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">Do</text>
+    <text x="170" y="80" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">Mi</text>
+    <text x="220" y="80" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle">Sol</text>
+</svg>

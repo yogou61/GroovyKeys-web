@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Manette de jeu -->
+    <rect x="100" y="100" width="200" height="120" rx="20" fill="#4ECDC4"/>
+    <circle cx="160" cy="160" r="20" fill="#FF6B6B"/>
+    <circle cx="240" cy="160" r="20" fill="#FFD93D"/>
+    <rect x="140" y="100" width="30" height="10" fill="#95E1D3"/>
+    <rect x="230" y="100" width="30" height="10" fill="#95E1D3"/>
+    <!-- Notes de musique -->
+    <path d="M150,80 Q170,60 190,80" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <path d="M210,80 Q230,60 250,80" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <circle cx="190" cy="80" r="5" fill="#ffffff"/>
+    <circle cx="250" cy="80" r="5" fill="#ffffff"/>
+    <!-- Texte -->
+    <text x="200" y="250" fill="#ffffff" font-family="Arial" font-size="24" text-anchor="middle">Jeux Musicaux</text>
+</svg>

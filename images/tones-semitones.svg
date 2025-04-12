@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fond -->
+    <rect width="500" height="200" fill="#1a1a1a"/>
+    
+    <!-- Touches de piano -->
+    <g transform="translate(50, 50)">
+        <!-- Touches blanches -->
+        <rect x="0" y="0" width="50" height="100" fill="white" stroke="#333"/>
+        <rect x="50" y="0" width="50" height="100" fill="white" stroke="#333"/>
+        <rect x="100" y="0" width="50" height="100" fill="white" stroke="#333"/>
+        <rect x="150" y="0" width="50" height="100" fill="white" stroke="#333"/>
+        
+        <!-- Touches noires -->
+        <rect x="35" y="0" width="30" height="60" fill="#333"/>
+        <rect x="85" y="0" width="30" height="60" fill="#333"/>
+        
+        <!-- Annotations -->
+        <text x="15" y="90" fill="#333" font-size="14">C</text>
+        <text x="65" y="90" fill="#333" font-size="14">D</text>
+        <text x="115" y="90" fill="#333" font-size="14">E</text>
+        <text x="165" y="90" fill="#333" font-size="14">F</text>
+        
+        <!-- Flèches pour les tons et demi-tons -->
+        <!-- C à C# (demi-ton) -->
+        <path d="M25,120 Q40,140 50,120" fill="none" stroke="#FF6B6B" stroke-width="2"/>
+        <text x="20" y="145" fill="#FF6B6B" font-size="12">½ ton</text>
+        
+        <!-- C à D (ton) -->
+        <path d="M25,160 Q50,180 75,160" fill="none" stroke="#4ECDC4" stroke-width="2"/>
+        <text x="35" y="185" fill="#4ECDC4" font-size="12">1 ton</text>
+    </g>
+    
+    <!-- Légende -->
+    <g transform="translate(250, 50)">
+        <text x="0" y="20" fill="white" font-size="14">1 ton = 2 demi-tons</text>
+        <text x="0" y="50" fill="#FF6B6B" font-size="14">Demi-ton : entre une touche et sa voisine</text>
+        <text x="0" y="80" fill="#4ECDC4" font-size="14">Ton : équivaut à deux demi-tons</text>
+        
+        <!-- Exemple avec notes -->
+        <text x="0" y="120" fill="white" font-size="14">Exemples :</text>
+        <text x="20" y="140" fill="#FF6B6B" font-size="12">• C → C# (demi-ton)</text>
+        <text x="20" y="160" fill="#FF6B6B" font-size="12">• E → F (demi-ton)</text>
+        <text x="20" y="180" fill="#4ECDC4" font-size="12">• C → D (ton)</text>
+        <text x="20" y="200" fill="#4ECDC4" font-size="12">• D → E (ton)</text>
+    </g>
+</svg>

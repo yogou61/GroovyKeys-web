@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Sandwich -->
+    <path d="M100,100 L300,100 L320,120 L80,120 Z" fill="#FFD700"/>
+    <rect x="80" y="120" width="240" height="20" fill="#FF6B6B"/>
+    <rect x="80" y="140" width="240" height="20" fill="#4ECDC4"/>
+    <rect x="80" y="160" width="240" height="20" fill="#FFD93D"/>
+    <path d="M80,180 L320,180 L300,200 L100,200 Z" fill="#FFD700"/>
+    <!-- Notes -->
+    <circle cx="150" cy="140" r="15" fill="#ffffff"/>
+    <circle cx="200" cy="160" r="15" fill="#ffffff"/>
+    <circle cx="250" cy="180" r="15" fill="#ffffff"/>
+    <!-- Texte -->
+    <text x="200" y="250" fill="#ffffff" font-family="Arial" font-size="24" text-anchor="middle">Accord Sandwich</text>
+</svg>

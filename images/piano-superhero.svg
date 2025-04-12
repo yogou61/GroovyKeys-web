@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Cape -->
+    <path d="M200,80 Q300,100 280,200" fill="#FF6B6B"/>
+    <!-- Main superhéros -->
+    <circle cx="200" cy="100" r="30" fill="#FFD93D"/> <!-- tête -->
+    <rect x="170" y="130" width="60" height="80" fill="#4ECDC4"/> <!-- corps -->
+    <path d="M170,130 L150,180 L170,180" fill="#4ECDC4"/> <!-- bras gauche -->
+    <path d="M230,130 L250,180 L230,180" fill="#4ECDC4"/> <!-- bras droit -->
+    <!-- Touches de piano -->
+    <rect x="100" y="200" width="200" height="60" fill="#ffffff"/>
+    <rect x="130" y="200" width="20" height="40" fill="#000000"/>
+    <rect x="170" y="200" width="20" height="40" fill="#000000"/>
+    <rect x="250" y="200" width="20" height="40" fill="#000000"/>
+    <!-- Notes magiques -->
+    <circle cx="150" cy="50" r="10" fill="#95E1D3"/>
+    <circle cx="200" cy="40" r="10" fill="#A8E6CF"/>
+    <circle cx="250" cy="50" r="10" fill="#FF8B94"/>
+    <!-- Texte -->
+    <text x="200" y="280" fill="#ffffff" font-family="Arial" font-size="24" text-anchor="middle">Super Piano</text>
+</svg>

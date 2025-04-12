@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Touches blanches -->
+    <rect x="50" y="50" width="40" height="200" fill="#ffffff" stroke="#000000"/>
+    <rect x="100" y="50" width="40" height="200" fill="#ffffff" stroke="#000000"/>
+    <rect x="150" y="50" width="40" height="200" fill="#ffffff" stroke="#000000"/>
+    <rect x="200" y="50" width="40" height="200" fill="#ffffff" stroke="#000000"/>
+    <rect x="250" y="50" width="40" height="200" fill="#ffffff" stroke="#000000"/>
+    <rect x="300" y="50" width="40" height="200" fill="#ffffff" stroke="#000000"/>
+    <!-- Noms des notes -->
+    <text x="70" y="230" fill="#000000" font-family="Arial" font-size="20" text-anchor="middle">Do</text>
+    <text x="120" y="230" fill="#000000" font-family="Arial" font-size="20" text-anchor="middle">Ré</text>
+    <text x="170" y="230" fill="#000000" font-family="Arial" font-size="20" text-anchor="middle">Mi</text>
+    <text x="220" y="230" fill="#000000" font-family="Arial" font-size="20" text-anchor="middle">Fa</text>
+    <text x="270" y="230" fill="#000000" font-family="Arial" font-size="20" text-anchor="middle">Sol</text>
+    <text x="320" y="230" fill="#000000" font-family="Arial" font-size="20" text-anchor="middle">La</text>
+</svg>

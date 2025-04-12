@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="300" height="200" fill="#1a1a1a"/>
+    <!-- Marches d'escalier -->
+    <rect x="20" y="160" width="40" height="20" fill="#FFD700"/>
+    <rect x="60" y="140" width="40" height="40" fill="#FF6B6B"/>
+    <rect x="100" y="120" width="40" height="60" fill="#4ECDC4"/>
+    <rect x="140" y="100" width="40" height="80" fill="#95E1D3"/>
+    <rect x="180" y="80" width="40" height="100" fill="#A8E6CF"/>
+    <rect x="220" y="60" width="40" height="120" fill="#FFB6B9"/>
+    <rect x="260" y="40" width="40" height="140" fill="#CC99FF"/>
+    <!-- Notes -->
+    <text x="40" y="175" fill="#000" font-family="Arial" font-size="14" text-anchor="middle">Do</text>
+    <text x="80" y="155" fill="#000" font-family="Arial" font-size="14" text-anchor="middle">Ré</text>
+    <text x="120" y="135" fill="#000" font-family="Arial" font-size="14" text-anchor="middle">Mi</text>
+    <text x="160" y="115" fill="#000" font-family="Arial" font-size="14" text-anchor="middle">Fa</text>
+    <text x="200" y="95" fill="#000" font-family="Arial" font-size="14" text-anchor="middle">Sol</text>
+    <text x="240" y="75" fill="#000" font-family="Arial" font-size="14" text-anchor="middle">La</text>
+    <text x="280" y="55" fill="#000" font-family="Arial" font-size="14" text-anchor="middle">Si</text>
+</svg>

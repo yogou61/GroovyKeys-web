@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#1a1a1a"/>
+    <!-- Touches blanches -->
+    <rect x="50" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <rect x="100" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <rect x="150" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <rect x="200" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <rect x="250" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <rect x="300" y="100" width="40" height="150" fill="#ffffff" stroke="#000000"/>
+    <!-- Notes colorées -->
+    <circle cx="70" cy="50" r="20" fill="#FF6B6B"/>
+    <circle cx="120" cy="50" r="20" fill="#4ECDC4"/>
+    <circle cx="170" cy="50" r="20" fill="#FFD93D"/>
+    <circle cx="220" cy="50" r="20" fill="#95E1D3"/>
+    <circle cx="270" cy="50" r="20" fill="#A8E6CF"/>
+    <circle cx="320" cy="50" r="20" fill="#FF8B94"/>
+    <!-- Texte -->
+    <text x="200" y="270" fill="#ffffff" font-family="Arial" font-size="24" text-anchor="middle">Notes colorées</text>
+</svg>
