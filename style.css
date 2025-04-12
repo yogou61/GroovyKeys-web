@@ -2868,3 +2868,191 @@ footer {
     border-left: 4px solid #dc3545;
     color: #dc3545;
 }
+
+/* Styles pour l'adaptation aux u00e9crans pliants et mobiles */
+@media screen and (max-width: 1200px) {
+    .main-container, .content-container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .piano-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .chord-container, .scale-container {
+        flex-direction: column;
+    }
+    
+    .controls-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .control-group {
+        margin: 5px 0;
+    }
+}
+
+/* Spu00e9cifiquement pour les u00e9crans pliants en mode pliu00e9 */
+@media screen and (max-width: 740px) {
+    .white-key {
+        width: 35px; /* Keys plus u00e9troites */
+    }
+    
+    .black-key {
+        width: 20px;
+    }
+    
+    .navbar ul {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .navbar li {
+        margin: 5px 0;
+    }
+    
+    .metronome-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .metronome-controls {
+        margin-top: 10px;
+    }
+    
+    /* Ajustements pour Musicfy */
+    .musicfy-container {
+        padding: 10px;
+    }
+    
+    .prompt-container {
+        flex-direction: column;
+    }
+    
+    .prompt-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .generate-button {
+        width: 100%;
+    }
+    
+    .track-item {
+        flex-direction: column;
+    }
+    
+    .track-controls {
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
+
+/* Adaptation pour la transition d'u00e9cran pliant */
+@media screen and (min-width: 741px) and (max-width: 840px) {
+    .white-key {
+        width: 40px;
+    }
+    
+    .black-key {
+        width: 22px;
+    }
+    
+    /* Ajustements d'interface pour la zone intermu00e9diaire */
+    .control-group {
+        margin: 5px;
+    }
+    
+    .option-container {
+        flex-wrap: wrap;
+    }
+}
+
+/* Styles pour u00e9cran pliant du00e9pliu00e9 et orientation paysage */
+@media screen and (min-width: 841px) and (max-height: 640px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-gap: 10px;
+    }
+    
+    .controls-container {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    
+    /* Optimisation pour l'affichage sur la moitiu00e9 infu00e9rieure de l'u00e9cran */
+    .piano-container {
+        height: auto;
+        max-height: 300px;
+    }
+}
+
+/* Adaptation spu00e9cifique pour les appareils pliables Samsung Galaxy Z Fold */
+@media screen and (min-width: 280px) and (max-width: 320px) and (max-height: 653px) {
+    /* u00c9cran extu00e9rieur en mode pliu00e9 */
+    .white-key {
+        width: 30px;
+        height: 120px;
+    }
+    
+    .black-key {
+        width: 18px;
+        height: 70px;
+    }
+    
+    .navbar {
+        padding: 5px;
+    }
+    
+    .navbar ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .navbar li {
+        margin: 2px;
+        font-size: 0.8em;
+    }
+}
+
+/* Adaptation spu00e9cifique pour les appareils pliables du00e9pliu00e9 */
+@media screen and (min-width: 717px) and (max-width: 740px) and (min-height: 740px) {
+    /* Mode du00e9pliu00e9 pour dispositifs comme Galaxy Z Flip */
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .piano-container {
+        margin-top: 20px;
+        height: auto;
+    }
+    
+    .white-key {
+        width: 38px;
+        height: 140px;
+    }
+    
+    .black-key {
+        width: 22px;
+        height: 80px;
+    }
+}
+
+/* Gestion du mode fold change via JavaScript - ces classes seront ajoutu00e9es dynamiquement */
+.fold-changed .main-container {
+    transition: all 0.5s ease;
+}
+
+.fold-horizontal .main-container {
+    flex-direction: column;
+}
+
+.fold-vertical .main-container {
+    flex-direction: row;
+}
