@@ -2082,7 +2082,7 @@ nav a.active {
     font-size: 0.85em;
     font-style: italic;
     margin-top: 10px;
-    border-left: 3px solid var(--accent-color);
+    border-left: 3px solid var(--accent);
 }
 
 .emotion-practice {
@@ -2810,4 +2810,61 @@ footer {
     margin: 15px 0;
     color: #e74c3c;
     border-radius: 0 5px 5px 0;
+}
+
+/* Styles pour la synchronisation des donnu00e9es */
+.sync-controls {
+    background-color: var(--control-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.sync-controls h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.sync-button {
+    background-color: var(--control-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.sync-button:hover {
+    background-color: var(--accent-color);
+    color: var(--main-bg);
+    transform: translateY(-2px);
+}
+
+.sync-status {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+.sync-status.success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border-left: 4px solid #28a745;
+    color: #28a745;
+}
+
+.sync-status.error {
+    background-color: rgba(220, 53, 69, 0.2);
+    border-left: 4px solid #dc3545;
+    color: #dc3545;
 }
