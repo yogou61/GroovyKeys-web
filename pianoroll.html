@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Roll - Groovy Keys</title>
+    <link rel="icon" href="raccourci.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles du piano roll conservés tels quels pour garantir le fonctionnement */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: #111;
+            color: white;
+            overflow: auto; /* Autoriser le défilement */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow: auto; /* Autoriser le défilement */
+        }
+
+        .header {
+            background-color: #111;
+            padding: 5px 10px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #4CAF50;
+        }
+
+        .nav {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            padding: 3px 0;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 3px;
+            font-size: 14px;
+        }
+
+        .nav a.active {
+            background-color: #4CAF50;
+            border-radius: 3px;
+        }
+
+        .melody-dropdown {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 200px;
+            cursor: pointer;
+        }
+        
+        .melody-dropdown option, .melody-dropdown optgroup {
+            background-color: var(--bg-secondary);
+            color: var(--text-color);
+        }
+        
+        .speed-control-container {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            background-color: var(--bg-secondary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .speed-label {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+        
+        #speed-control {
+            width: 100px;
+            margin: 0 10px;
+        }
+        
+        #speed-value {
+            font-weight: bold;
+            color: var(--text-color);
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .bpm-display {
+            display: flex;
+            align-items: center;
+            background: var(--bg-secondary);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .bpm-label {
+            font-weight: bold;
+            margin-right: 6px;
+            color: var(--accent-color);
+        }
+        
+        #bpm-value {
+            font-weight: bold;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        .controls-section {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .controls-row {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .controls-row label {
+            width: 80px;
+            font-weight: bold;
+            color: #bdc3c7;
+        }
+        
+        .play-controls {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .play-controls button {
+            flex: 1;
+            margin: 0 5px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        #popup-start, #start {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        #popup-start:hover, #start:hover {
+            background-color: #c69316;
+            box-shadow: 0 0 5px var(--accent-color);
+        }
+        
+        #popup-stop, #stop {
+            background-color: #c0392b;
+            color: var(--text-color);
+        }
+        
+        #popup-stop:hover, #stop:hover {
+            background-color: #a33025;
+            box-shadow: 0 0 5px #c0392b;
+        }
+        
+        .main-controls {
+            display: flex;
+            margin-left: 15px;
+        }
+        
+        .control-button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 5px;
+            transition: all 0.2s;
+            background-color: var(--control-bg);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .start {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .start:hover {
+            background-color: #c69316;
+            box-shadow: 0 0 5px var(--accent-color);
+        }
+        
+        .stop {
+            background-color: #c0392b;
+            color: var(--text-color);
+        }
+        
+        .stop:hover {
+            background-color: #a33025;
+            box-shadow: 0 0 5px #c0392b;
+        }
+        
+        .piano-roll {
+            flex: 1;
+            position: relative;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            overflow: visible; /* Autoriser le débordement */
+            min-height: 650px; /* Hauteur ajustée */
+        }
+
+        #player-panel {
+            padding-top: 10px; /* Réduit de 60px à 10px */
+        }
+        
+        .note-area {
+            flex: 1;
+            position: relative;
+            overflow: hidden; /* Garder hidden pour l'intérieur du canvas */
+            background-color: #000;
+            min-height: 450px; /* Hauteur ajustée */
+        }
+
+        #notes-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-color: #000; /* Garantir le fond noir */
+        }
+
+        .guide-line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4CAF50;
+            box-shadow: 0 0 10px #4CAF50;
+            z-index: 2;
+        }
+
+        .keyboard {
+            height: 160px;
+            background-color: #222;
+            position: relative;
+        }
+
+        .white-key {
+            position: absolute;
+            height: 100%;
+            background-color: white;
+            border: 1px solid #444;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .black-key {
+            position: absolute;
+            height: 65%;
+            background-color: #111;
+            border-radius: 0 0 3px 3px;
+            z-index: 2;
+        }
+
+        .key-active {
+            background-color: #FFEB3B !important;
+        }
+
+        .key-correct {
+            background-color: #4CAF50 !important;
+        }
+
+        .key-wrong {
+            background-color: #F44336 !important;
+        }
+
+        .result-popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #222;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            text-align: center;
+            z-index: 1000;
+            min-width: 300px;
+            border: 1px solid #444;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .result-popup h2 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        
+        .result-popup p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+        
+        .result-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .result-buttons button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        #retry-button {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        #retry-button:hover {
+            background: #c69316;
+            box-shadow: 0 0 5px var(--accent-color);
+        }
+        
+        #close-button {
+            background: #c0392b;
+            color: var(--text-color);
+        }
+        
+        #close-button:hover {
+            background: #a33025;
+            box-shadow: 0 0 5px #c0392b;
+        }
+
+        /* Styles pour l'interface de composition */
+        .composer-panel {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .composer-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #222;
+        }
+
+        .note-editor {
+            flex: 1;
+            background-color: #111;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .note-item {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            margin: 5px 0;
+            background-color: #333;
+            border-radius: 3px;
+        }
+
+        .note-item select, .note-item input {
+            margin: 0 5px;
+            padding: 5px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .note-item button {
+            margin-left: auto;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .add-note-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 10px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .save-melody {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 3px;
+        }
+
+        .save-melody input {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #333;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .save-melody button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .speed-control {
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .speed-slider-container {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .speed-slider-container span {
+            margin: 0 10px;
+        }
+
+        .speed-display {
+            margin-bottom: 10px;
+        }
+        
+        .melody-selection-centered {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 20px;
+            margin: 0; /* Réduit de 8px 0 à 0 */
+        }
+        
+        .controls-popup-trigger {
+            display: flex;
+            align-items: center;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .controls-icon {
+            font-size: 16px;
+            margin-right: 6px;
+        }
+        
+        .controls-text {
+            font-weight: bold;
+        }
+        
+        .bpm-display {
+            display: flex;
+            align-items: center;
+            background: #333;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .bpm-label {
+            font-weight: bold;
+            margin-right: 6px;
+            color: #e74c3c;
+        }
+        
+        #bpm-value, #popup-bpm-value {
+            font-weight: bold;
+            color: #ecf0f1;
+        }
+        
+        .controls-section {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .controls-row {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .controls-row label {
+            width: 80px;
+            font-weight: bold;
+            color: #bdc3c7;
+        }
+        
+        .play-controls {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .play-controls button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        #popup-start, #start {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        #popup-start:hover, #start:hover {
+            background-color: #c69316;
+            box-shadow: 0 0 5px var(--accent-color);
+        }
+        
+        #popup-stop, #stop {
+            background-color: #c0392b;
+            color: var(--text-color);
+        }
+        
+        #popup-stop:hover, #stop:hover {
+            background-color: #a33025;
+            box-shadow: 0 0 5px #c0392b;
+        }
+        
+        .main-controls {
+            display: flex;
+            margin-left: 15px;
+        }
+        
+        .control-button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 5px;
+            transition: all 0.2s;
+            background-color: var(--control-bg);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .start {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .start:hover {
+            background-color: #c69316;
+            box-shadow: 0 0 5px var(--accent-color);
+        }
+        
+        .stop {
+            background-color: #c0392b;
+            color: var(--text-color);
+        }
+        
+        .stop:hover {
+            background-color: #a33025;
+            box-shadow: 0 0 5px #c0392b;
+        }
+        
+        .melody-dropdown {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 200px;
+            cursor: pointer;
+        }
+        
+        .melody-dropdown option, .melody-dropdown optgroup {
+            background-color: var(--bg-secondary);
+            color: var(--text-color);
+        }
+        
+        .speed-control-container {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            background-color: var(--bg-secondary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .speed-label {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+        
+        #speed-control {
+            width: 100px;
+            margin: 0 10px;
+        }
+        
+        #speed-value {
+            font-weight: bold;
+            color: var(--text-color);
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .bpm-display {
+            display: flex;
+            align-items: center;
+            background: var(--bg-secondary);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .bpm-label {
+            font-weight: bold;
+            margin-right: 6px;
+            color: var(--accent-color);
+        }
+        
+        #bpm-value {
+            font-weight: bold;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="logo.png" alt="Groovy Keys Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Piano</a>
+        <a href="practice.html">Entraînement</a>
+        <a href="improvisation.html">Improvisation</a>
+        <a href="learn.html">Apprendre</a>
+        <a href="pianoroll.html" class="active">Piano Roll</a>
+        <a href="about.html">À propos</a>
+    </nav>
+
+    <div class="container">
+        <div class="controls-fixed">
+            <div class="melody-selection-centered">
+                <select id="melody-select" class="melody-dropdown">
+                    <option value="">Sélectionner une mélodie</option>
+                    <optgroup label="Préconfigurées">
+                        <option value="twinkle">Twinkle Twinkle</option>
+                        <option value="jingle">Jingle Bells</option>
+                        <option value="happy">Happy Birthday</option>
+                    </optgroup>
+                    <optgroup label="Populaires">
+                        <option value="fur_elise">Fur Elise (Beethoven)</option>
+                        <option value="let_it_be">Let It Be (Beatles)</option>
+                        <option value="bohemian_rhapsody">Bohemian Rhapsody (Queen)</option>
+                        <option value="billie_jean">Billie Jean (M. Jackson)</option>
+                        <option value="despacito">Despacito (Luis Fonsi)</option>
+                    </optgroup>
+                    <optgroup label="Contemporaines (2010+)">
+                        <option value="blinding_lights">Blinding Lights (The Weeknd)</option>
+                        <option value="shape_of_you">Shape of You (Ed Sheeran)</option>
+                        <option value="dance_monkey">Dance Monkey (Tones and I)</option>
+                        <option value="bad_guy">Bad Guy (Billie Eilish)</option>
+                        <option value="uptown_funk">Uptown Funk (Bruno Mars)</option>
+                        <option value="shallow">Shallow (Lady Gaga & Bradley Cooper)</option>
+                        <option value="someone_like_you">Someone Like You (Adele)</option>
+                        <option value="perfect">Perfect (Ed Sheeran)</option>
+                        <option value="dont_start_now">Don't Start Now (Dua Lipa)</option>
+                        <option value="havana">Havana (Camila Cabello)</option>
+                        <option value="royals">Royals (Lorde)</option>
+                        <option value="believer">Believer (Imagine Dragons)</option>
+                        <option value="watermelon_sugar">Watermelon Sugar (Harry Styles)</option>
+                        <option value="drivers_license">drivers license (Olivia Rodrigo)</option>
+                        <option value="lovely">lovely (Billie Eilish & Khalid)</option>
+                        <option value="stay">Stay (The Kid LAROI & Justin Bieber)</option>
+                        <option value="memories">Memories (Maroon 5)</option>
+                        <option value="levitating">Levitating (Dua Lipa)</option>
+                        <option value="say_so">Say So (Doja Cat)</option>
+                        <option value="circles">Circles (Post Malone)</option>
+                    </optgroup>
+                    <optgroup label="Hip Hop & Rap">
+                        <option value="lose_yourself">Lose Yourself (Eminem)</option>
+                        <option value="gold_digger">Gold Digger (Kanye West)</option>
+                        <option value="in_da_club">In Da Club (50 Cent)</option>
+                        <option value="hotline_bling">Hotline Bling (Drake)</option>
+                        <option value="sicko_mode">Sicko Mode (Travis Scott)</option>
+                        <option value="gods_plan">God's Plan (Drake)</option>
+                        <option value="humble">HUMBLE. (Kendrick Lamar)</option>
+                        <option value="still_dre">Still D.R.E. (Dr. Dre ft. Snoop Dogg)</option>
+                        <option value="gin_and_juice">Gin and Juice (Snoop Dogg)</option>
+                        <option value="juicy">Juicy (The Notorious B.I.G.)</option>
+                        <option value="thrift_shop">Thrift Shop (Macklemore)</option>
+                        <option value="empire_state">Empire State of Mind (Jay-Z)</option>
+                        <option value="cant_touch_this">U Can't Touch This (MC Hammer)</option>
+                        <option value="california_love">California Love (2Pac)</option>
+                        <option value="get_lucky">Get Lucky (Daft Punk & Pharrell)</option>
+                        <option value="stronger">Stronger (Kanye West)</option>
+                        <option value="old_town_road">Old Town Road (Lil Nas X)</option>
+                        <option value="formation">Formation (Beyoncé)</option>
+                        <option value="goosebumps">goosebumps (Travis Scott)</option>
+                        <option value="money_trees">Money Trees (Kendrick Lamar)</option>
+                    </optgroup>
+                    <optgroup label="Reggae">
+                        <option value="no_woman_no_cry">No Woman, No Cry (Bob Marley)</option>
+                        <option value="three_little_birds">Three Little Birds (Bob Marley)</option>
+                        <option value="could_you_be_loved">Could You Be Loved (Bob Marley)</option>
+                        <option value="i_shot_the_sheriff">I Shot the Sheriff (Bob Marley)</option>
+                        <option value="redemption_song">Redemption Song (Bob Marley)</option>
+                        <option value="is_this_love">Is This Love (Bob Marley)</option>
+                        <option value="jamming">Jamming (Bob Marley)</option>
+                        <option value="buffalo_soldier">Buffalo Soldier (Bob Marley)</option>
+                    </optgroup>
+                    <optgroup label="Rock">
+                        <option value="sweet_child">Sweet Child O' Mine (Guns N' Roses)</option>
+                        <option value="stairway_heaven">Stairway to Heaven (Led Zeppelin)</option>
+                        <option value="smoke_water">Smoke on the Water (Deep Purple)</option>
+                        <option value="bohemian_rhapsody_rock">Bohemian Rhapsody (Queen)</option>
+                        <option value="hotel_california">Hotel California (Eagles)</option>
+                        <option value="back_in_black">Back in Black (AC/DC)</option>
+                        <option value="enter_sandman">Enter Sandman (Metallica)</option>
+                        <option value="seven_nation">Seven Nation Army (The White Stripes)</option>
+                        <option value="purple_haze">Purple Haze (Jimi Hendrix)</option>
+                        <option value="smells_teen_spirit">Smells Like Teen Spirit (Nirvana)</option>
+                    </optgroup>
+                    <optgroup label="Funk">
+                        <option value="superstition">Superstition (Stevie Wonder)</option>
+                        <option value="get_up">Get Up (I Feel Like Being a) Sex Machine (James Brown)</option>
+                        <option value="play_that_funky_music">Play That Funky Music (Wild Cherry)</option>
+                        <option value="good_times">Good Times (Chic)</option>
+                        <option value="car_wash">Car Wash (Rose Royce)</option>
+                        <option value="september">September (Earth, Wind & Fire)</option>
+                        <option value="brick_house">Brick House (Commodores)</option>
+                        <option value="uptown_funk_original">Uptown Funk (Mark Ronson & Bruno Mars)</option>
+                        <option value="give_it_away">Give It Away (Red Hot Chili Peppers)</option>
+                        <option value="jungle_boogie">Jungle Boogie (Kool & The Gang)</option>
+                    </optgroup>
+                    <optgroup label="Personnalisées" id="custom-melodies">
+                        <option disabled>Aucune mélodie personnalisée</option>
+                    </optgroup>
+                </select>
+                <button id="start" class="control-button start">Démarrer</button>
+                <button id="stop" class="control-button stop">Arrêter</button>
+                <div class="speed-control-container">
+                    <span class="speed-label">Vitesse:</span>
+                    <input type="range" id="speed-control" min="0.5" max="2" step="0.1" value="1">
+                    <span id="speed-value">1.0x</span>
+                </div>
+                <div class="bpm-display">
+                    <span class="bpm-label">BPM:</span>
+                    <span id="bpm-value">120</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Piano Roll Panel -->
+        <div id="player-panel">
+            <div class="piano-roll">
+                <div class="note-area">
+                    <canvas id="notes-canvas"></canvas>
+                    <div class="guide-line"></div>
+                </div>
+
+                <div class="keyboard" id="keyboard">
+                    <!-- Les touches du piano seront générées par JavaScript -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="pianoroll-simple.js"></script>
+    <script src="melodies-loader.js"></script>
+    <script src="melody-fix.js"></script>
+</body>
+</html>
